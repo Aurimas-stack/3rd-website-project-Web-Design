@@ -1,0 +1,21 @@
+@mixin column-flex {
+    flex-direction: column;
+    align-items: center;
+}
+@mixin row-flex {
+    flex-direction: row;
+    align-items: center;
+}
+@mixin section-title ($c: $black, $fs: $section-title-font) {
+    margin: 0;
+    color: $c;
+    font-size: $fs;
+}
+@mixin section-text ($w: 50%, $ls: $small-spacing, $lh: $base-line-height, $fs: 1.2rem, $ta: center, $c: $black){
+    width: $w;
+    letter-spacing: $ls;
+    line-height: $lh;
+    font-size: $fs;
+    text-align: $ta;
+    color: $c;
+}
