@@ -1,0 +1,38 @@
+.site-header {
+    @include row-flex;
+    justify-content: space-between;
+    position: fixed;
+    width: $full-width;
+    padding: 10px;
+    background-color: $white;
+    .mob-nav {
+        display:none;
+    }
+}
+.site-title {
+    font-size:$section-title-font * 0.6;
+    font-weight: 800;
+    letter-spacing: $small-spacing;
+}
+.header-nav {
+    padding-right: 30px;
+    ul {
+        flex-direction: row-reverse;
+    }
+    li {
+        list-style: none;
+        margin-right: 20px;
+        
+    }
+    a {
+        font-size: $section-text-font * 1.1;
+        text-decoration: none;
+        color: $black;
+        &:hover {
+            color: $light-blue;
+            font-weight: 600;
+            text-transform: $big-text;
+            cursor: $pointer;
+        }
+    }
+}
