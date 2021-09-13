@@ -1,0 +1,173 @@
+#contact-hero {
+    background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+    .container {
+        @include column-flex;
+        padding: 80px 0;
+        .hero-title {
+            @include section-title ($c: $grey);
+        }
+        .hero-text {
+            @include section-text ($w: 35%, $fs: 1.1rem, $c: #666);
+            font-weight: 500;
+        }
+    }
+}
+#contact-info {
+    width: $full-width;
+    background-color: $blue-purple;
+    .container {
+        padding:30px;
+        @include column-flex;
+        #googleMap {
+            margin-top:50px;
+            width: $full-width * 0.65;
+            height: 400px;
+            border: 2px $white solid;
+            border-radius: $border-radius * 2;
+        }
+        .form-and-information {
+            @include row-flex;
+            >:nth-child(1) {
+                @include column-flex;
+                h3 {
+                    color:$white;
+                    font-size: 1.5rem;
+                }
+                form {
+                    @include column-flex;
+                    width: 400px;
+                    input:not(.button) {
+                        width: $full-width;
+                        height: 15px;  
+                        border: none;
+                        margin-top: 10px;
+                        padding: 10px;
+                        color: $white;
+                        border-radius: $border-radius;
+                        background-color:$light-blue-purple;
+                        &:focus {
+                            outline: none !important;
+                        } 
+                        &::placeholder {
+                            color:$white;
+                        }                                                 
+                    }
+                    >:nth-child(4) {
+                        width: $full-width;
+                        border: none;
+                        padding: 10px;
+                        margin-top: 10px;
+                        color: $white;
+                        border-radius: $border-radius;
+                        background-color:$light-blue-purple;
+                        &:focus {
+                            outline: none !important;
+                        }
+                        &::placeholder {
+                            color:$white;
+                        }
+                    }
+                    >:nth-child(5) {
+                        color: $white;
+                        font-size: $section-text-font * 0.85;
+                        letter-spacing: $small-spacing;
+                        font-weight: 300;
+                        margin: 10px 0 10px 0;
+                        
+                    }
+                    >:nth-child(6) {
+                        @include row-flex;
+                        justify-content: flex-start !important;
+                        width: $full-width;
+                        margin:25px 0;
+                        .checkmark {
+                            margin:0;
+                            width:15px;
+                        }
+                        p {
+                            color: $white;
+                            font-size: $section-text-font * 0.95;
+                            letter-spacing: $small-spacing;
+                            font-weight: 300;
+                            margin: 0 0 0 10px;
+                        }  
+                    }
+                    .button {
+                        align-self: flex-start;
+                    }
+                }
+            }
+            .contacts {
+                flex-direction: column;
+                align-content: flex-start;
+                margin-left:80px;
+                padding-bottom:100px;
+                div {
+                    flex-direction: column;
+                    align-content: flex-start;
+                    p {
+                        color:#d0d0d0;
+                        font-size:1.5rem;
+                        font-weight: 600;
+                    }
+                    a {
+                        text-decoration: none;
+                        color:$white;
+                        font-size:1.3rem;
+                        font-weight: 500;
+                        letter-spacing: $small-spacing;
+                        &:hover{
+                            cursor:$pointer;
+                            color:#AFA136;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//CONTACT MEDIA BELOW
+@media screen and (max-width:1380px) {
+    #contact-hero {
+        .container {
+            .hero-text {
+                width: $full-width * 0.45;
+            }
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    #contact-hero {
+        .container {
+            .hero-text {
+                width: $full-width * 0.75;
+            }
+        }
+    }
+}
+@media screen and (max-width: 750px) {
+    #contact-info {
+        .container {
+            .form-and-information {
+                @include column-flex;
+            }
+            #googleMap {
+                width: $full-width * 0.85;
+            }
+        }
+    }
+}
+@media screen and (max-width: 715px) {
+    #contact-hero {
+        .container {
+            align-items: flex-end;
+            .hero-text {
+                text-align:right;
+            }
+        }
+    }
+}
