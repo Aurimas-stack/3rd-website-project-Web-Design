@@ -86,6 +86,49 @@ $(document).ready(() => {
     }).focusout(() => {
         $('.ta-wordcount').hide();
     });
+    //Animation for portfolio hero container after page load
+    $('.port-hero > .container').addClass('slide-bottom');
+    //Animation for portfolio projects section boxes after page load
+    $('.port-project').addClass('slide-bottom');
+    //Animation for page-pricing pricing hero container after page load
+    $('.pricing-hero > .container').addClass('slide-bottom');
+    //Animation for page-pricing pricing-prices section after page load
+    $('.pricing-prices').addClass('slide-bottom');
+    //Animation for page-pricing build-something section after page load
+    $(window).on("scroll touchmove", () => {
+        if ($('.build-something').length && $(window).scrollTop() + $(window).height() - 15 >= $('.build-something').offset().top) {
+            $('.build-something > .container').addClass('slide-left');
+        }
+    });
+    //Animation for page-pricing day-support section after page load
+    $(window).on("scroll touchmove", () => {
+        if ($('.day-support').length && $(window).scrollTop() + $(window).height() - 45 >= $('.day-support').offset().top) {
+            $('.day-support > .container').addClass('slide-bottom');
+        }
+    });
+    //Animation for page-pricing trustworthy section after page load
+    $(window).on("scroll touchmove", () => {
+        if ($('.trustworthy').length && $(window).scrollTop() + $(window).height() - 85 >= $('.trustworthy').offset().top) {
+            $('.trustworthy > .container').addClass('slide-bottom');
+        }
+    });
+    //Animation for page-pricing our-quote section after page load
+    $(window).on("scroll touchmove", () => {
+        if ($('.our-quote').length && $(window).scrollTop() + $(window).height() - 105 >= $('.our-quote').offset().top) {
+            $('.our-quote > .container').addClass('slide-left');
+        }
+    });
+    //Animation for contact page hero container after page load
+    $('#contact-hero > .container').addClass('slide-bottom');
+    //Animation for contact page contact-info section after page load
+    $('#contact-info').addClass('slide-bottom');
+    //Scroll to the top of page  after clicking header "double arrow" icon
+    $('.fa-angle-double-up').on('click', () => {
+        $('body, html').animate({
+            scrollTop:0,
+        }, 800);
+        return false;
+    });
 
 
 });
