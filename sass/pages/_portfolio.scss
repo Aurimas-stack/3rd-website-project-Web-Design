@@ -1,0 +1,186 @@
+#portfolio {
+    .port-hero {
+        background-image: url(https://user-images.githubusercontent.com/82368117/133217995-f2fb93fa-e1ce-4dc7-81b2-d667d62d199f.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding:150px;
+        .container {
+            @include column-flex;
+            margin-top:40px;
+            .hero-title {
+                @include section-title ($c: $white, $fs: 3rem);
+            }
+            .hero-text {
+                @include section-text ($c:rgba(255,255,255,0.7), $fs: 1.1rem, $w: 45%);
+                font-weight: 500;
+            }
+        }
+    }
+    .port-projects {
+        background-color:$white;
+        padding:120px;
+        .container {
+            @include column-flex;
+            .port-project-boxes {
+                z-index: 1;
+                @include row-flex;
+                margin:20px 0;
+                .port-project {
+                    @include row-flex;
+                    margin: 10px 30px;
+                    img {
+                        height: 405px;
+                        width: 320px;
+                    }
+                    p {
+                        color:$black;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            h3 {
+                font-weight: 500;
+                letter-spacing: $small-spacing;
+                span {
+                    color: $light-blue;
+                    font-weight: 600;
+                    &:hover {
+                        cursor:$pointer;
+                        color: $blue-purple;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//MEDIA BELOW
+@media screen and (max-width:1200px) {
+    #portfolio {
+        .port-hero {
+            padding:100px;
+            .container {
+                .hero-text {
+                    width:65%;
+                }
+            }
+        }
+        .port-projects {
+            padding:90px;
+            .container {
+                .port-project-boxes {
+                    margin:10px 0;
+                    .port-project {
+                        margin:10px 20px;
+                        img {
+                            width: 280px;
+                            height: 390px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:980px) {
+    #portfolio {
+        .port-projects {
+            padding:60px;
+            .container {
+                .port-project-boxes {
+                    margin:10px 0;
+                    .port-project {
+                        margin:10px;
+                        img {
+                            width: 250px;
+                            height: 360px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:820px) {
+    #portfolio {
+        .port-projects {
+            padding:40px;
+            .container {
+                .port-project-boxes {
+                    margin:10px 0;
+                    flex-direction: column;
+                    align-items: center;
+                    .port-project {
+                        margin:30px 0;
+                        img {
+                            width: 320px;
+                            height: 405px;
+                        }
+                    }
+                }
+                h3 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:600px) {
+    #portfolio {
+        .port-hero {
+            padding:140px 30px;
+            .container {
+                .hero-title {
+                    font-size: 2rem;
+                    text-align: center;
+                    color: rgba(255,255,255,0.9);
+                }
+                .hero-text {
+                    width:95%;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:400px) {
+    #portfolio {
+        .port-hero {
+            padding:160px 10px;
+            .container {
+                .hero-title {
+                    font-size: 1.8rem;
+                    text-align: center;
+                    color: rgba(255,255,255,0.9);
+                }
+                .hero-text {
+                    width:$full-width;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:330px) {
+    #portfolio {
+        .port-projects {
+            padding:20px;
+            .container {
+                .port-project-boxes {
+                    margin:10px 0;
+                    flex-direction: column;
+                    align-items: center;
+                    .port-project {
+                        margin:30px 0;
+                        img {
+                            width: 280px;
+                            height: 390px;
+                        }
+                    }
+                }
+                h3 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
