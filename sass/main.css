@@ -2215,4 +2215,254 @@ body {
     text-align: center;
   }
 }
+
+#submit_success .success-hero {
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 450px 0;
+}
+
+#submit_success .success-hero .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#submit_success .success-hero .container .hero-title {
+  margin: 0;
+  color: #000;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#submit_success .success-hero .container .hero-text {
+  width: 50%;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (max-width: 550px) {
+  #submit_success .success-hero {
+    padding: 400px 0;
+  }
+  #submit_success .success-hero .container .hero-title, #submit_success .success-hero .container .hero-text {
+    color: #df3f3f;
+  }
+  #submit_success .success-hero .container .hero-title {
+    font-size: 2rem;
+  }
+}
+
+#forum .forum-hero {
+  background-image: url(https://user-images.githubusercontent.com/82368117/133047246-5df938ea-e8e6-403a-b64f-b9f301bd61d4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+#forum .forum-hero .container {
+  padding-top: 350px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#forum .forum-hero .container > p {
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+#forum .forum-hero .container > p > a {
+  color: #1FB6EA;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#forum .forum-hero .container > p > a:hover {
+  color: #3644AF;
+  cursor: pointer;
+}
+
+#forum .forum-hero .container form {
+  background-color: #fff;
+  padding: 50px 80px;
+  border-radius: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#forum .forum-hero .container form > div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px 0;
+}
+
+#forum .forum-hero .container form > div input {
+  padding: 10px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+}
+
+#forum .forum-hero .container form > div input:focus {
+  outline: none;
+}
+
+#forum .forum-hero .container form > div input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+#forum .forum-hero .container form > div input:-ms-input-placeholder {
+  color: #fff;
+}
+
+#forum .forum-hero .container form > div input::-ms-input-placeholder {
+  color: #fff;
+}
+
+#forum .forum-hero .container form > div input::placeholder {
+  color: #fff;
+}
+
+#forum .forum-hero .container form > div p {
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+}
+
+#forum .forum-hero .container form .button {
+  background-color: #1FB6EA;
+  color: #fff;
+  margin: 10px 0;
+}
+
+#forum .forum-hero .container form .button:hover {
+  background-color: #3644AF;
+}
+
+#sign_up .sign_up-hero {
+  background-image: url(https://user-images.githubusercontent.com/82368117/133047246-5df938ea-e8e6-403a-b64f-b9f301bd61d4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+#sign_up .sign_up-hero .container {
+  padding-top: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sign_up .sign_up-hero .container > p {
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+#sign_up .sign_up-hero .container > p > a {
+  color: #1FB6EA;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#sign_up .sign_up-hero .container > p > a:hover {
+  color: #3644AF;
+  cursor: pointer;
+}
+
+#sign_up .sign_up-hero .container form {
+  background-color: #fff;
+  padding: 20px 100px;
+  border-radius: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sign_up .sign_up-hero .container form > div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px 0;
+}
+
+#sign_up .sign_up-hero .container form > div input {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+}
+
+#sign_up .sign_up-hero .container form > div input:focus {
+  outline: none;
+}
+
+#sign_up .sign_up-hero .container form > div input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+#sign_up .sign_up-hero .container form > div input:-ms-input-placeholder {
+  color: #fff;
+}
+
+#sign_up .sign_up-hero .container form > div input::-ms-input-placeholder {
+  color: #fff;
+}
+
+#sign_up .sign_up-hero .container form > div input::placeholder {
+  color: #fff;
+}
+
+#sign_up .sign_up-hero .container form > div p {
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+}
+
+#sign_up .sign_up-hero .container form .button {
+  background-color: #1FB6EA;
+  color: #fff;
+  margin: 10px 0;
+}
+
+#sign_up .sign_up-hero .container form .button:hover {
+  background-color: #3644AF;
+}
 /*# sourceMappingURL=main.css.map */
