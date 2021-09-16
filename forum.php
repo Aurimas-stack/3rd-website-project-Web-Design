@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,18 +42,29 @@
     </header>
     <section class='forum-hero'>
         <div class='container flex-container'>
-            <form class='flex-container'>
-                <div class='flex-container'>
-                    <p>Your Username or Email:</p>
-                    <input type='text' name='uid' placeholder='Username or Email'/>
-                </div>
-                <div class='flex-container'>
-                    <p>Your Password:</p>
-                    <input type='password' name='pwd' placeholder='Password' required/>
-                </div>
-                <input type='submit' name='submit' value='Log In' class='button' required/>
-            </form>
-            <p>Don't have an account? <a href='sign_up.php'>Sign up here</a></p>
+            <?php
+                if(isset($_SESSION['u_id'])) {
+                    echo "<p class='loged_user'>" . "Logged in as: ". $_SESSION["u_uid"] ."</p>";
+                    echo '  <form class="log_out_form" action="project_form/log_out.php" method="post">
+                                <button class="button" type="submit" name="submit">Logout</button>
+                            </form>';
+                    echo "<p class='logged_in_or'>OR</p>";
+                    echo "<p class='logged_in_forum'><a href='forum_logged_in.php'>Proceed to the forum</a></p>";
+                } else {
+                    echo '<form class="flex-container" method="post" action="project_form/log_in.php"">
+                                <div class="flex-container">
+                                    <p>Your Username or Email:</p>
+                                    <input type="text" name="uid" placeholder="Username"/>
+                                </div>
+                                <div class="flex-container">
+                                    <p>Your Password:</p>
+                                    <input type="password" name="pwd" placeholder="Password" required/>
+                                </div>
+                                <input type="submit" name="submit1" value="Log In" class="button"/>
+                            </form>
+                            <p>Don\'t have an account? <a href="sign_up.php">Sign up here</a></p>';
+                }
+            ?>
         </div>
     </section>
 <script src="javascript/jquery.min.js"></script>
