@@ -23,6 +23,42 @@
                     }
                 }
             }
+            .logged_in_or {
+                @include section-text($fs: 1.5rem);
+                font-weight: 500;
+            }
+            .logged_in_forum {
+                background-color:$white;
+                padding:30px;
+                width: 320px;
+                text-align: center;
+                &:hover {
+                    color:$darker-light-blue;
+                }
+            }
+            .loged_user {
+                margin:0;
+                background-color: $white;
+                width: 320px;
+                padding:20px;
+                font-weight:600;
+                letter-spacing: $small-spacing;
+                font-size: $section-text-font;
+                text-align: center;
+            }
+            .log_out_form {
+                width: 320px;
+                padding:20px;
+                border-radius:0;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                .button {
+                    align-self:center;
+                    background-color: rgb(182, 47, 47);
+                    padding:10px 15px;
+                }
+            }
             form {
                 background-color: $white;
                 padding:50px 80px;
