@@ -2296,6 +2296,62 @@ body {
   cursor: pointer;
 }
 
+#forum .forum-hero .container .logged_in_or {
+  width: 50%;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #000;
+  font-weight: 500;
+}
+
+#forum .forum-hero .container .logged_in_forum {
+  background-color: #fff;
+  padding: 30px;
+  width: 320px;
+  text-align: center;
+}
+
+#forum .forum-hero .container .logged_in_forum:hover {
+  color: #2ea3f2;
+}
+
+#forum .forum-hero .container .loged_user {
+  margin: 0;
+  background-color: #fff;
+  width: 320px;
+  padding: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#forum .forum-hero .container .log_out_form {
+  width: 320px;
+  padding: 20px;
+  border-radius: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#forum .forum-hero .container .log_out_form .button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #b62f2f;
+  padding: 10px 15px;
+}
+
 #forum .forum-hero .container form {
   background-color: #fff;
   padding: 50px 80px;
