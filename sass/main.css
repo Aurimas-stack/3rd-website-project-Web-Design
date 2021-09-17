@@ -2454,6 +2454,23 @@ body {
   cursor: pointer;
 }
 
+#sign_up .sign_up-hero .container .go-to-log-in {
+  text-decoration: none;
+  margin-top: 30px;
+  width: 262px;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1rem;
+  text-align: center;
+  color: #000;
+  font-weight: 500;
+}
+
+#sign_up .sign_up-hero .container .go-to-log-in:hover {
+  color: #1FB6EA;
+  cursor: pointer;
+}
+
 #sign_up .sign_up-hero .container form {
   background-color: #fff;
   padding: 20px 100px;
@@ -2510,6 +2527,13 @@ body {
   letter-spacing: 1px;
   font-size: 1rem;
   margin: 0 0 5px 0;
+}
+
+#sign_up .sign_up-hero .container form > div .error {
+  margin-top: 10px;
+  color: #e62d2d;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 #sign_up .sign_up-hero .container form .button {
