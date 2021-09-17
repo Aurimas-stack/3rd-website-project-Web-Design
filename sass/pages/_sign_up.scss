@@ -23,6 +23,16 @@
                     }
                 }
             }
+            .go-to-log-in {
+                text-decoration: none;
+                margin-top:30px;
+                @include section-text ($w: 262px, $fs:1rem);
+                font-weight: 500;
+                &:hover {
+                    color:$light-blue;
+                    cursor:$pointer;
+                }
+            }
             form {
                 background-color: $white;
                 padding:20px 100px;
@@ -48,6 +58,12 @@
                         letter-spacing: $small-spacing;
                         font-size: $section-text-font;
                         margin:0 0 5px 0;
+                    }
+                    .error {
+                        margin-top:10px;
+                        color:rgb(230, 45, 45);
+                        font-weight: 500;
+                        font-size: 0.9rem;
                     }
                 }
                 .button {
