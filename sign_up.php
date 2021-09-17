@@ -1,6 +1,60 @@
 <?php
     session_start();
 ?>
+<?php
+    try {
+        $pdo = new \PDO('mysql:host=localhost;dbname=third_project;charset=utf8', 'root', '', [
+            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]);
+        $emptyErr = $nameErr = $emailErr = $userErr = "";
+        if($_POST && isset($_POST['submit'])) {
+            $first = trim($_POST['first']);
+            $last = trim($_POST['last']);
+            $email = trim($_POST['email']);
+            $uid = trim($_POST['uid']);
+            $pwd = trim($_POST['pwd']);
+            //checks if there's an empty field
+            if(empty($first) || empty($last) || empty($email) || empty ($uid) || empty ($pwd)) {
+                $emptyErr = "The field is empty";
+            } else {
+                //checks inputs for invalid symbols through Regex
+                if(!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
+                    $nameErr = "Invalid name (no symbols are allowed)";
+                } else {
+                    //checks if the email is in valid format
+                    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $emailErr = "Invalid email format";
+                    } else {
+                        //checks if the username is already in use
+                        $findU = $pdo->prepare("SELECT * FROM `users` WHERE user_uid = :uid");
+                        $findU->bindParam(':uid', $uid);
+                        $findU->execute();
+                        $result = $findU->fetchColumn();
+                        if($result> 0) {
+                            $userErr = "Username is taken";
+                        } else {
+                            //creating hash for password
+                            $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+                            //inserts new users into DB
+                            $newUser = $pdo->prepare("INSERT INTO `users` (user_first, user_last, user_email, 
+                            user_uid, user_pwd) VALUES (:first, :last, :email, :uid, :hashedPwd)");
+                            $newUser->execute(array(':first' => $first, ':last' => $last, ':email' => $email,
+                            ':uid' => $uid, ':hashedPwd' => $hashedPwd));
+                            $first = $last = $email = $uid = $pwd = NULL;
+                            header("Location: forum.php");
+                            exit();
+                        }
+                    }
+                }
+            }
+        }
+    } catch(\PDOException $e) {
+        echo "Error connecting to mySQL: " . $e->getMessage();
+        echo "<code><pre>".print_r($e)."</pre></code>";
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,22 +97,27 @@
     <section class='sign_up-hero'>
         <div class='container flex-container'>
             <h2>Sign up here</h2>
-            <form class='flex-container' method='post' action='project_form/sign_up_form.php'>
+            <form class='flex-container' method='post' action='<?= $_SERVER["PHP_SELF"];?>'>
+                <span class="error"><?php echo $emptyErr;?></span>
                 <div class='flex-container'>
                     <p>Your Name:</p>
-                    <input type='text' name='first' placeholder='First Name' required/>
+                    <input type='text' name='first' placeholder='First Name' value='<?= htmlspecialchars(@$_POST["first"]); ?>' required/>
+                    <span class="error"><?php echo $nameErr;?></span>
                 </div>
                 <div class='flex-container'>
                     <p>Your Last Name:</p>
-                    <input type='text' name='last' placeholder='Last Name' required/>
+                    <input type='text' name='last' placeholder='Last Name' value='<?= htmlspecialchars(@$_POST["last"]); ?>' required/>
+                    <span class="error"><?php echo $nameErr;?></span>
                 </div>
                 <div class='flex-container'>
                     <p>Your Email:</p>
-                    <input type='email' name='email' placeholder='Your Email' required/>
+                    <input type='email' name='email' placeholder='Your Email' value='<?= htmlspecialchars(@$_POST["email"]); ?>' required/>
+                    <span class="error"><?php echo $emailErr;?></span>
                 </div>
                 <div class='flex-container'>
                     <p>Your Username:</p>
-                    <input type='text' name='uid' placeholder='Username' required/>
+                    <input type='text' name='uid' placeholder='Username' value='<?= htmlspecialchars(@$_POST["uid"]); ?>' required/>
+                    <span class="error"><?php echo $userErr;?></span>
                 </div>
                 <div class='flex-container'>
                     <p>Your Password:</p>
@@ -66,6 +125,7 @@
                 </div>
                 <input type='submit' name='submit' value='Sign up' class='button' />
             </form>
+            <a class='go-to-log-in' href='forum.php'>Go back to the log in screen</a>
         </div>
     </section>
 <script src="javascript/jquery.min.js"></script>
