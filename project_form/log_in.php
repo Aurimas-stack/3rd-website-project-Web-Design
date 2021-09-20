@@ -1,9 +1,4 @@
-<?php
-    error_reporting(E_ALL);  
-    ini_set('display_errors', true);
-    error_reporting(-1);
-    ini_set('memory_limit', '-1');
-    
+<?php  
     try {
         $pdo = new \PDO('mysql:host=localhost;dbname=third_project;charset=utf8', 'root', '', [
             PDO::ATTR_EMULATE_PREPARES => false,
@@ -40,6 +35,7 @@
                             $_SESSION['u_last'] = $row['user_last'];
                             $_SESSION['u_email'] = $row['user_email'];
                             $_SESSION['u_uid'] = $row['user_uid'];
+                            $_SESSION['u_creation'] = $row['date_created']; 
                             header("Location: ../forum.php");
                             exit();
                         }
