@@ -1,0 +1,82 @@
+#forum_in {
+    .user_info {
+        padding:10px;
+        @include row-flex;
+        background-color: #8BC6EC;
+        background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 $full-width);
+        >p {
+            margin:0 10px;
+            font-size:$section-text-font;
+            color:$black;
+            letter-spacing: $small-spacing;
+            >span {
+                font-weight: 500;
+                letter-spacing: 0;
+            }
+        }
+        >form {
+            padding:0;
+            margin-left:30px;
+            .button {
+                align-self: center;
+                padding:10px 15px;
+                font-size: $section-text-font;
+                margin-bottom: 0;
+                &:hover {
+                    background-color:#ECB18B;
+                }
+            }
+        }
+
+    }
+    .forum_name_look {
+        background-color:#B895E2;
+        padding:20px;
+        .container {
+            @include column-flex;
+            >h1 {
+                color:$black;
+                letter-spacing: $bigger-spacing;
+            }
+            >h3 {
+                color:$black;
+                letter-spacing: $small-spacing;
+            }
+            >:nth-child(2) {
+                a {
+                    text-decoration: none;
+                    color:$black;
+                    &:hover {
+                        color:$white;
+                        cursor:$pointer;
+                    }
+                }
+            }
+        }
+    }
+    .forum_thread_look {
+        background-color: #BFE295;
+        padding:20px;
+        min-height:545px;
+        .threads {
+            @include column-flex;
+            border-left: 5px $black solid;
+            border-right: 5px $black solid;;
+            max-width: 980px;
+            .thread_title_user {
+                font-weight: 400;
+                font-size: 1.2rem;
+                margin-top:20px;
+                >:nth-child(2) {
+                    &:hover {
+                        cursor:$pointer;
+                        color:$white;
+                    }
+                }
+                >:nth-child(3) {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
