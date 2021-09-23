@@ -21,7 +21,7 @@
             <ul class='flex-container'>
                 <li><a href="home.php">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="#"><i class="fas fa-angle-double-up"></i></a></li>
@@ -31,7 +31,7 @@
             <ul id="mobMenu" class="flex-container">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
             </ul>

@@ -16,25 +16,7 @@
 <body id='forum_in'>
     <?php 
         if(isset($_SESSION['u_id'])) {
-            echo "<section class='user_info flex-container'>";
-                $dateNow = new DateTime(); //create newDateTime object of current time
-                $creationDate = new DateTime($_SESSION['u_creation']); //create DateTime object of the user
-                $dateInterval = $dateNow->diff($creationDate); //get the difference between date object's
-                $dateResult; //variable to store different values
-                if(($dateInterval->m) < 1) {
-                    $dateResult = "It's less than 1 month old."; //echo this if the account age is < 1 month
-                } else {
-                    $dateResult = $dateInterval->m; //otherwise echo months
-                }
-                echo "<p class='loged_user'>" . "<span>" . "Username: " . "</span>". $_SESSION["u_uid"] . "." ."</p>";
-                echo "<p class='loged_name'>" . "<span>" . "Your First Name: " . "</span>" . $_SESSION["u_first"] . "." ."</p>";
-                echo "<p class='loged_name'>" . "<span>" . "Your Last Name: " . "</span>" . $_SESSION["u_last"] . "." ."</p>";
-                echo "<p class='creation_age'>" . "<span>" . "Account age: " . "</span>". $dateResult . "</p>";
-                echo '  <form class="log_out_form" action="project_form/log_out.php" method="post">
-                            <button class="button" type="submit" name="submit">Logout</button>
-                        </form>';
-                
-            echo "</section>";
+            include_once 'user_nav/user_nav.php';
             echo "<section class='forum_name_look'>";
                 echo "<div class='flex-container container'>";
                     echo "<h1><i class='fas fa-book-reader'></i>Our Forum</h1>";
@@ -47,9 +29,14 @@
                 echo "<div class='threads container flex-container'>";
                         include_once 'project_form/show_threads.php';
                             foreach($rows as $row) {
-                                echo "<h3 class='thread_title_user'>" . "<span>Thread Title: </span>" . 
-                                "<span>" . $row['thread_title'] ."</span>" .
-                                "<br>" . "<span>By: </span>" . $row['user_name'] . "</h3>";
+                                echo "<div class='thread_title_box flex-container'>";
+                                    echo "<h3 class='thread_title_user'>" . "<span>Thread Title: </span>" . 
+                                        "<a href='u_thread.php?id=".$row['id']."'>" . $row['thread_title'] . "</a>" . "</h3>";
+                                    echo "<p class='thread_posted_by'>" . "<span>" . "Posted By: " . "</span>"
+                                        . $row['user_name'] . "</p>";
+                                    echo "<p>" . "<span>" . "Created at: " . "</span>" . 
+                                        date('Y-M-d', strtotime($row['date_created'])) . "</p>";
+                                echo "</div>";
                             }
                 echo "</div>";
             echo "</section>";
