@@ -6,7 +6,8 @@
 @import 'reset/reset',
         'global/global';
 
-@import 'layout/header';
+@import 'layout/header',
+        'layout/user_info';
 
 @import 'components/components';
 
@@ -18,4 +19,5 @@
         'pages/forum',
         'pages/sign_up',
         'pages/forum_logged_in',
-        'pages/thread_maker';
+        'pages/thread_maker',
+        'pages/u_thread';
