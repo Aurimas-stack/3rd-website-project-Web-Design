@@ -1,34 +1,4 @@
 #forum_in {
-    .user_info {
-        padding:10px;
-        @include row-flex;
-        background-color: #8BC6EC;
-        background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 $full-width);
-        >p {
-            margin:0 10px;
-            font-size:$section-text-font;
-            color:$black;
-            letter-spacing: $small-spacing;
-            >span {
-                font-weight: 500;
-                letter-spacing: 0;
-            }
-        }
-        >form {
-            padding:0;
-            margin-left:30px;
-            .button {
-                align-self: center;
-                padding:10px 15px;
-                font-size: $section-text-font;
-                margin-bottom: 0;
-                &:hover {
-                    background-color:#ECB18B;
-                }
-            }
-        }
-
-    }
     .forum_name_look {
         background-color:#B895E2;
         padding:20px;
@@ -63,18 +33,39 @@
             border-left: 5px $black solid;
             border-right: 5px $black solid;;
             max-width: 980px;
-            .thread_title_user {
-                font-weight: 400;
-                font-size: 1.2rem;
-                margin-top:20px;
-                >:nth-child(2) {
-                    &:hover {
-                        cursor:$pointer;
-                        color:$white;
+            >.thread_title_box {
+                margin:20px 0;
+                padding:10px;
+                width:320px;
+                background-color:$white;
+                border: 2px $black solid;
+                @include column-flex;
+                .thread_title_user {
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    margin-top:20px;
+                    >:nth-child(2) {
+                        color:$black;
+                        text-decoration: none;
+                        &:hover {
+                            cursor:$pointer;
+                            color:$darker-light-blue;
+                        }
+                    }
+                    >:nth-child(1) {
+                        font-weight: 800;
+                    }
+                }
+                .thread_posted_by {
+                    margin:0;
+                    >span {
+                        font-weight: 600;
                     }
                 }
                 >:nth-child(3) {
-                    font-weight: 600;
+                    >span {
+                        font-weight: 600;
+                    }
                 }
             }
         }
