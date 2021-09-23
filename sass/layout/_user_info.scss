@@ -1,0 +1,31 @@
+.user_info {
+    width: 100%;
+    padding:10px;
+    @include row-flex;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 $full-width);
+    >p {
+        margin:0 10px;
+        font-size:$section-text-font;
+        color:$black;
+        letter-spacing: $small-spacing;
+        >span {
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+    }
+    >form {
+        padding:0;
+        margin-left:30px;
+        .button {
+            align-self: center;
+            padding:10px 15px;
+            font-size: $section-text-font;
+            margin-bottom: 0;
+            &:hover {
+                background-color:#ECB18B;
+            }
+        }
+    }
+
+}
