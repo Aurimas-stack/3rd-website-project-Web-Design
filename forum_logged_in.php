@@ -20,7 +20,7 @@
             echo "<section class='forum_name_look'>";
                 echo "<div class='flex-container container'>";
                     echo "<h1><i class='fas fa-book-reader'></i>Our Forum</h1>";
-                    echo "<h3><a href='thread_maker.php'>Make a thread</a></h3>";
+                    echo "<h3><a href='thread_maker.php'>Make a thread <i class='fas fa-arrow-right'></i></a></h3>";
                     echo "<h3>OR</h3>";
                     echo "<h3>View The threads below</h3>";
                 echo "</div>";
@@ -45,6 +45,7 @@
             exit();
         }
     ?>
+    <script window.location.reload();>
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>

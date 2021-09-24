@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link href='sass/main.css' rel='stylesheet'>
+    <link href='sass/main.css' rel='stylesheet'>    
 <body id='thread_in'>
     <?php 
         if(isset($_SESSION['u_id'])) {
@@ -24,7 +24,8 @@
                     ]);
                     if(isset($_GET['id'])) {
                         $thread_id = $_GET['id'];
-                        $query = $pdo->prepare("SELECT thread_title, thread_text, user_name, date_created FROM `threads` WHERE id = :ident");
+                        $_SESSION['thread-id'] = $thread_id; //ID TO GET BACK TO ORIGINAL THREAD AFTER MAKING A RESPONSE TO THAT THREAD
+                        $query = $pdo->prepare("SELECT thread_title, thread_text, user_name, date_created, id FROM `threads` WHERE id = :ident");
                         $query->bindPARAM(':ident', $thread_id);
                         $query->execute();
                         $infos = $query->fetchAll();
@@ -32,12 +33,31 @@
                             echo "<div class='opend_thread flex-container'>";
                                 echo "<div class='flex-container'>";
                                     echo "<p>" . $info['thread_title'] . "</p>";
-                                    echo "<p>" . $info['thread_text'] . "</p>";
-                                    echo "<p>By: " . $info['user_name'] . "</p>";
-                                    echo "<p>Posted: " . date('Y-M-d', strtotime($info['date_created'])) . "</p>";
+                                    echo "<p>" . $info['thread_text'] . "." . "</p>";
+                                    echo "<p><i class='far fa-user'></i> " . $info['user_name'] . "." . "</p>";
+                                    echo "<p><i class='far fa-clock'></i> " . str_replace("-"," ", date('Y-M-d', strtotime($info['date_created']))) . "." . "</p>";
                                 echo "</div>";
-                                echo "<a href='forum_logged_in.php'>Go back to the posts</a>";
-                            echo "</div>";                    
+                                echo "<div class='flex-container'>";
+                                include_once 'project_form/show_thread_responses.php';
+                                $t_responses = $query->fetchAll();
+                                foreach($t_responses as $t_response) {
+                                        echo "<div class='flex-container'>";
+                                            echo "<div class='flex-container'>";
+                                                echo "<p><i class='far fa-user'></i></p>";
+                                                echo "<p>" . $t_response['responded_user'] . ":". "</p>";
+                                            echo "</div>";
+                                            echo "<p>" . $t_response['response'] . "</p>";
+                                        echo "</div>";
+                                } 
+                                echo "</div>";
+                                echo "<form class='flex-container' method='post' action='project_form/thread_response.php'>";
+                                    echo "<textarea rows='4' placeholder='Your Response...' maxLength='300' name='r_text' required></textarea>";
+                                    $_SESSION['u_thread_title'] = $info['thread_title']; //USED TO INSERT TITLE NAME INTO DB
+                                   // $_SESSION['u_thread_id'] = $info['id']; //TO GET SPECIFIC THREAD ID
+                                    echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
+                                echo "</form>";
+                                echo "<a href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";
+                            echo "</div>";                   
                         }
                     }
                 }
