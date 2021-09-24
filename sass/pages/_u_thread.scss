@@ -3,33 +3,93 @@
         @include column-flex;
         padding:10px;
         width: 100%;
-        height: 100vh;
         background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
         >:nth-child(1) {
             @include column-flex;
-            background-color:$white;
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
             margin-top:50px;
             padding:30px;
             border-radius:$border-radius * 2;
             max-width: 600px;
+            border:2px $black solid;
             
             >:nth-child(1) {
                 text-transform: uppercase;
-                letter-spacing: $small-spacing;
+                letter-spacing: $bigger-spacing;
                 font-weight: 500;
-                border-bottom: 1px $grey solid;
                 word-wrap: break-word;
                 max-width: 600px;
             }
             >:nth-child(2) {
-                font-size:1.1rem;
+                font-size:1.05rem;
                 letter-spacing: $small-spacing;
                 line-height: $base-line-height;
                 word-wrap: break-word;
                 max-width: 600px;
             }
+            >:nth-child(3),>:nth-child(4) {
+                color:rgb(24, 23, 23);
+                font-size:0.95rem;
+            }
         }
         >:nth-child(2) {
+            background-color:$white;
+            width:590px;
+            padding:10px;
+            margin:10px 0 30px 0;
+            border-radius: $border-radius;
+            @include column-flex;
+            >div {
+                width:590px;
+                border-bottom:1px $grey solid;
+                @include row-flex;
+                >:nth-child(2) {
+                    max-width: 480px;
+                    word-wrap: break-word;
+                    letter-spacing: $small-spacing;
+                    font-size: 0.95rem;
+                }
+                >:nth-child(1) {
+                    margin-right:15px;
+                    @include row-flex;
+                    font-weight: 600;
+                }
+            }
+            
+        }
+        >:nth-child(3){
+            width:500px;
+            padding:20px;
+            background-color:$white;
+            border-radius: $border-radius;
+            margin:30px 0;
+            @include column-flex;
+            >:nth-child(1) {
+                border:none;
+                background-image: $white;
+                border:2px $black solid;
+                padding:9px;
+                width: $full-width;
+                color:$black;
+                border-radius: $border-radius;
+                &:focus {
+                    outline:none;
+                }
+                &::placeholder {
+                    color:$black;
+                    font-weight: 500;
+                }
+            }
+            .button {
+                margin:20px 0 0 0;
+                background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+                color:$black;
+                &:hover {
+                    background-image: linear-gradient(90deg, #74EBD5 0%, #74EBD5 50%, #9FACE6 100%);
+                }
+            }
+        }
+        >:nth-child(4) {
             margin-top:50px;
             text-decoration: none;
             @include section-text($c: $white);
