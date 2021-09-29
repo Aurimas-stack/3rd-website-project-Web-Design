@@ -37,11 +37,11 @@
                                     echo "<p><i class='far fa-user'></i> " . $info['user_name'] . "." . "</p>";
                                     echo "<p><i class='far fa-clock'></i> " . str_replace("-"," ", date('Y-M-d', strtotime($info['date_created']))) . "." . "</p>";
                                 echo "</div>";
-                                echo "<div class='flex-container'>";
+                                echo "<div class='u_resp_tt_cont flex-container'>";
                                 include_once 'project_form/show_thread_responses.php';
                                 $t_responses = $query->fetchAll();
                                 foreach($t_responses as $t_response) {
-                                        echo "<div class='flex-container'>";
+                                        echo "<div class='u_resp_tt flex-container'>";
                                             echo "<div class='flex-container'>";
                                                 echo "<p><i class='far fa-user'></i></p>";
                                                 echo "<p>" . $t_response['responded_user'] . ":". "</p>";
@@ -49,11 +49,15 @@
                                             echo "<p>" . $t_response['response'] . "</p>";
                                         echo "</div>";
                                 } 
+                                    echo "<div class='response_pagin flex-container'>";
+                                        echo "<a id='prevResponses'>&#10094;</a>";
+                                        echo "<ul id='resp_pagin' class='flex-container'></ul>";
+                                        echo "<a id='nextResponses'>&#10095;</a>";
+                                    echo "</div>";
                                 echo "</div>";
                                 echo "<form class='flex-container' method='post' action='project_form/thread_response.php'>";
-                                    echo "<textarea rows='4' placeholder='Your Response...' maxLength='300' name='r_text' required></textarea>";
+                                    echo "<textarea rows='4' placeholder='Leave your response...' maxLength='300' name='r_text' required></textarea>";
                                     $_SESSION['u_thread_title'] = $info['thread_title']; //USED TO INSERT TITLE NAME INTO DB
-                                   // $_SESSION['u_thread_id'] = $info['id']; //TO GET SPECIFIC THREAD ID
                                     echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
                                 echo "</form>";
                                 echo "<a href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";

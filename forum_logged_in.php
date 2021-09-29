@@ -45,7 +45,6 @@
             exit();
         }
     ?>
-    <script window.location.reload();>
     <script src="javascript/jquery.min.js"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
