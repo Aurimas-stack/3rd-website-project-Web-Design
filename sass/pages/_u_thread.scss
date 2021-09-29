@@ -1,3 +1,6 @@
+.page_section_height {
+    height: 100vh;
+}
 #thread_in {
     .opend_thread {
         @include column-flex;
@@ -38,6 +41,36 @@
             padding:10px;
             margin:10px 0 30px 0;
             border-radius: $border-radius;
+            .response_pagin {
+                @include row-flex;
+                justify-content: center;
+                border-bottom: none;
+                #prevResponses {
+                    margin-right:0;
+                }
+                #prevResponses, #nextResponses {
+                    font-weight: 800;
+                    &:hover {
+                        color:$light-blue;
+                        cursor: $pointer;
+                    }
+                }
+                #resp_pagin {
+                    padding:0;
+                    margin:20px 10px;
+                    li {
+                        list-style:none;
+                        a {
+                            text-decoration: none;
+                            color:$black;
+                            &:hover {
+                                color:$light-blue;
+                            }
+                        }
+                        margin-left:5px;
+                    }
+                }
+            }
             @include column-flex;
             >div {
                 width:590px;
