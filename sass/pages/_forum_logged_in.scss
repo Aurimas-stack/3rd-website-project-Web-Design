@@ -33,6 +33,31 @@
             border-left: 5px $black solid;
             border-right: 5px $black solid;;
             max-width: 980px;
+            >.thread_pagin {
+                ul {
+                    display:flex;
+                    @include row-flex;
+                    li {
+                        list-style:none;
+                        a {
+                            font-size:1.1rem;
+                            text-decoration: none;
+                            color:$black;
+                            padding:4px;
+                            &:hover {
+                                background-color:#B895E2;
+                                color:$white;
+                                border-radius: $border-radius;
+                            }
+                        }
+                        span {
+                            font-size: 1.2rem;
+                            padding:4px;
+                        }
+                        margin-left:5px;
+                    }
+                }
+            }
             >.thread_title_box {
                 margin:20px 0;
                 padding:10px;
@@ -40,6 +65,18 @@
                 background-color:$white;
                 border: 2px $black solid;
                 @include column-flex;
+                .a-d-t {
+                    @include row-flex;
+                    i {
+                        &:hover {
+                            cursor: $pointer;
+                            color:red;
+                        }
+                    }
+                    p {
+                        margin:0;
+                    }
+                }
                 .thread_title_user {
                     font-weight: 400;
                     font-size: 1.2rem;
