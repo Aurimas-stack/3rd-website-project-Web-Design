@@ -129,6 +129,7 @@
         </div>
     </section>
 <script src="javascript/jquery.min.js"></script>
+<script src="javascript/pagination.js" type="text/javascript"></script>
 <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
 </html>

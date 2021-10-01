@@ -50,9 +50,6 @@
                                         echo "</div>";
                                 } 
                                     echo "<div class='response_pagin flex-container'>";
-                                        echo "<a id='prevResponses'>&#10094;</a>";
-                                        echo "<ul id='resp_pagin' class='flex-container'></ul>";
-                                        echo "<a id='nextResponses'>&#10095;</a>";
                                     echo "</div>";
                                 echo "</div>";
                                 echo "<form class='flex-container' method='post' action='project_form/thread_response.php'>";
@@ -76,6 +73,7 @@
         }
     ?>  
     <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/pagination.js" type="text/javascript"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
 </html>

@@ -24,11 +24,14 @@
                                     <button class="button" type="submit" name="submit">Logout</button>
                                 </form>';
                     echo "</div>";
-                    echo    "<form class='post_thread_form flex-container' action='project_form/post_thread_form.php' method='post'>
-                                <input type='text' placeholder='Thread Title' name='title' maxLength='30' required/>
-                                <textarea placeholder='Thread Text' name='t_text' maxLength='500' rows='8' required></textarea>
+                    echo "<form class='post_thread_form flex-container' action='project_form/post_thread_form.php' method='post'>
+                                <input id='i-ta' type='text' placeholder='Thread Title' name='title' maxLength='30' required/>
+                                <p class='i-wordcount'><span class='characters1'>30</span> characters remaining.</p>
+                                <textarea id='tm-ta' placeholder='Thread Text' name='t_text' maxLength='500' rows='8' required></textarea>
+                                <p class='tm-wordcount'><span class='characters'>500</span> characters remaining.</p>
                                 <button class='button' type='submit' name='submit_thread'>Post Thread</button>
                             </form>";
+                    echo "<a href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the threads</a>";
                 echo "</div>";
             echo "</section>";
         } else {
@@ -37,6 +40,7 @@
         }
     ?>
     <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/pagination.js" type="text/javascript"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
 </html>

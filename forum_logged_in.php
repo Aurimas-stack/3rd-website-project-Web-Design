@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href='sass/main.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="#">
 <body id='forum_in'>
     <?php 
         if(isset($_SESSION['u_id'])) {
@@ -36,8 +37,15 @@
                                         . $row['user_name'] . "</p>";
                                     echo "<p>" . "<span>" . "Created at: " . "</span>" . 
                                         date('Y-M-d', strtotime($row['date_created'])) . "</p>";
+                                    if($_SESSION["u_uid"] == 'Tester1234') {
+                                        echo "<div class='a-d-t flex-container'>";
+                                            echo "<i id='".$row['id']."' class='fas fa-trash-alt'></i>";
+                                            echo "<p>Delete Thread</p>";
+                                        echo "</div>";
+                                    }
                                 echo "</div>";
                             }
+                    echo "<div class='thread_pagin'></div>";
                 echo "</div>";
             echo "</section>";
         } else {
@@ -46,6 +54,7 @@
         }
     ?>
     <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/pagination.js" type="text/javascript"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
 </html>

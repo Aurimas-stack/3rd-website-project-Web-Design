@@ -86,6 +86,7 @@
     </section>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1UGUtIwun8AH5gNQ9iD5f3KLQrKIi5LY&callback=myMap"></script>
     <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/pagination.js" type="text/javascript"></script>
     <script src="javascript/js.js" type="text/javascript"></script>   
 </body>
 </html>
