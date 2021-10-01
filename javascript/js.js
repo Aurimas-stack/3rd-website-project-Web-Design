@@ -129,8 +129,121 @@ $(document).ready(() => {
         }, 800);
         return false;
     });
-
-
+    //Changes section height in threads depending of how many responses there're are - in order to remove white space
+    if($('.u_resp_tt').length < 2 && $('.u_resp_tt') !== null) {
+        $('.opend_thread').addClass("page_section_height");
+    } else {
+        $('.opend_thread').removeClass("page_section_height");
+    }
+    //Doesn't display responses container if there're none responses to a thread
+    if($('.u_resp_tt_cont').children().length === 1) {
+        $('.u_resp_tt_cont').css("display", "none");
+    } else {
+        $('.u_resp_tt_cont').css("display", "block");
+    }
+    //pagination for user responses
+    let items = $('.u_resp_tt');
+    let numItems = $(".u_resp_tt").length;
+    let perPage = 10;
+    items.slice(perPage).hide();
+    $('.response_pagin').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        displayedPages: 3,
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+    //pagination for threads
+    let posted_threads = $('.thread_title_box');
+    let num_threads = $('.thread_title_box').length;
+    let threadsPerPage = 5;
+    posted_threads.slice(threadsPerPage).hide();
+    $('.thread_pagin').pagination({
+        items: num_threads,
+        itemsOnPage: threadsPerPage,
+        prevText: "&laquo;",
+        displayedPages: 3,
+        nextText: "&raquo;",
+        onPageClick: function (threadNumber) {
+            var showFrom = threadsPerPage * (threadNumber - 1);
+            var showTo = showFrom + threadsPerPage;
+            posted_threads.hide().slice(showFrom, showTo).show();
+        }
+    });
+    //Hides word count below textarea on the form when page loads
+    $('.tm-wordcount').hide();
+    //Counts character count for the textarea in the submit form on the thread_maker.php page
+    $('#tm-ta').on('keyup', event => {
+        let post3 = $(event.currentTarget).val();
+        let remaining3 = 500 - post3.length;
+        if (remaining3 <= 80) {
+            $('.tm-wordcount').css({
+                color: 'red',
+                fontSize: '1rem'
+            });
+        } else {
+            $('.tm-wordcount').css({
+                color: '#fff',
+                fontSize: '1rem'
+            });
+        }
+        $('.characters').html(remaining3);
+    });
+    //Shows or hides the word count depending if the textarea is focused or not
+    $('#tm-ta').focus(() => {
+        $('.tm-wordcount').show();
+    }).focusout(() => {
+        $('.tm-wordcount').hide();
+    });
+    //Hides word count below textarea on the form when page loads
+    $('.i-wordcount').hide();
+    //Counts character count for the input in the submit form on the thread_maker.php page
+    $('#i-ta').on('keyup', event => {
+        let post4 = $(event.currentTarget).val();
+        let remaining4 = 30 - post4.length;
+        if (remaining4 <= 10) {
+            $('.i-wordcount').css({
+                color: 'red',
+                fontSize: '1rem'
+            });
+        } else {
+            $('.i-wordcount').css({
+                color: '#fff',
+                fontSize: '1rem'
+            });
+        }
+        $('.characters1').html(remaining4);
+    });
+    //Shows or hides the word count depending if the textarea is focused or not
+    $('#i-ta').focus(() => {
+        $('.i-wordcount').show();
+    }).focusout(() => {
+        $('.i-wordcount').hide();
+    });
+    //if "admin" is connected he can delete threads (and post related to that thread) from DB after clicking on trashcan
+    $('.fa-trash-alt').on("click", function() {
+        let threadID = ($(this).attr("id"));
+        $.ajax({
+            type: 'POST',
+            url: 'project_form/delete_threads.php',
+            cache: false,
+            data: {threadID: threadID},
+            success: function(data) {
+                setTimeout(function(){// wait for 5 secs(2)
+                    location.reload(); // then reload the page.(3)
+               }, 500); 
+            },
+            error: function() {
+                 alert('Failed to edit!');
+            }
+        });
+    });
+    
 });
 
 //javascript site header mobile menu show function
