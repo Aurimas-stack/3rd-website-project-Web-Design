@@ -234,8 +234,8 @@ $(document).ready(() => {
             cache: false,
             data: {threadID: threadID},
             success: function(data) {
-                setTimeout(function(){// wait for 5 secs(2)
-                    location.reload(); // then reload the page.(3)
+                setTimeout(function(){// wait for x < secs after deletion
+                    location.reload(); // then reload the page.
                }, 500); 
             },
             error: function() {
@@ -243,6 +243,27 @@ $(document).ready(() => {
             }
         });
     });
+    if($('#disabled_log').length > 0) {//if disabled button exists (after 3 failed attempts)
+        let decrease_sec = function () { //decrease the waiting timer function (for visual display)
+            $('.timing').each(function() {
+                let dec_elemnt = parseInt($(this).html());
+                if(dec_elemnt !== 0) {
+                    $(this).html(dec_elemnt - 1);
+                    
+                }
+            });        
+        };
+        setInterval(decrease_sec, 1000); //timer decreases each second
+        setInterval(() => { //ajax call with interval
+            $.ajax({
+                url:'project_form/general_unset.php',//after 30 sec's has passed, unsets, destroys the $_SESSION variable
+                success: function() { 
+                    location.reload(); //reloads the page after deletion
+                }
+            })
+        }, 30000) //real 30 second timer
+    }
+
     
 });
 
@@ -255,6 +276,7 @@ function displayMobileNav() {
         x.style.display = "block";
     }
 }
+
 //Google maps for Contact Page (will not load completely because billing is not used atm)
 let map;
 
