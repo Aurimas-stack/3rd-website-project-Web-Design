@@ -13,6 +13,16 @@
             letter-spacing: 0;
         }
     }
+    .profile-settings {
+        text-decoration: none;
+        margin:0 10px 0 5px;
+        letter-spacing: $small-spacing;
+        color:$white;
+        &:hover {
+            cursor:$pointer;
+            border-bottom:1px solid $white;
+        }
+    }
     >form {
         padding:0;
         margin-left:30px;
@@ -22,7 +32,7 @@
             font-size: $section-text-font;
             margin-bottom: 0;
             &:hover {
-                background-color:#ECB18B;
+                background-color:rgb(182, 47, 47);
             }
         }
     }
