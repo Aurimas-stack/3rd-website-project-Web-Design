@@ -1,9 +1,6 @@
 <?php
     try {
-        $pdo = new \PDO('mysql:host=localhost;dbname=third_project;charset=utf8', 'root', '', [
-            PDO::ATTR_EMULATE_PREPARES => false,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        include_once 'db_name.php';
         $query = $pdo->prepare("SELECT thread_title, user_name, date_created, id FROM `threads` WHERE thread_text != ''");
         $query->execute();
         $rows = $query->fetchAll();

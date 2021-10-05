@@ -1,10 +1,7 @@
 <?php 
     session_start();
     try {
-        $pdo = new \PDO('mysql:host=localhost;dbname=third_project;charset=utf8', 'root', '', [
-            PDO::ATTR_EMULATE_PREPARES => false,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        include_once 'db_name.php';
         $thread_to_delete = $_POST['threadID'];
         $stmt = $pdo->prepare("DELETE FROM `threads` WHERE id = :thread_delete");
         $stmt->bindPARAM(':thread_delete', $thread_to_delete);

@@ -1,10 +1,7 @@
 <?php 
     session_start();
     try {
-        $pdo = new \PDO('mysql:host=localhost;dbname=third_project;charset=utf8', 'root', '', [
-            PDO::ATTR_EMULATE_PREPARES => false,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        ]);
+        include_once 'db_name.php';
         if($_POST && isset($_POST['submit_thread'])) {
             $thread_title = trim($_POST['title']);
             $thread_text = trim($_POST['t_text']);
