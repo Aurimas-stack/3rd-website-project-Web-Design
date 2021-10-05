@@ -249,7 +249,12 @@ $(document).ready(() => {
                 let dec_elemnt = parseInt($(this).html());
                 if(dec_elemnt !== 0) {
                     $(this).html(dec_elemnt - 1);
-                    
+                }
+                if(dec_elemnt < 15) {
+                    $(".timing").css({
+                        color: 'red'
+                    });
+               
                 }
             });        
         };
