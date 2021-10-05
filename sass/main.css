@@ -439,6 +439,18 @@ body {
   letter-spacing: 0;
 }
 
+.user_info .profile-settings {
+  text-decoration: none;
+  margin: 0 10px 0 5px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.user_info .profile-settings:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+
 .user_info > form {
   padding: 0;
   margin-left: 30px;
@@ -454,7 +466,7 @@ body {
 }
 
 .user_info > form .button:hover {
-  background-color: #ECB18B;
+  background-color: #b62f2f;
 }
 
 .button {
@@ -3105,5 +3117,38 @@ body {
 #thread_in .opend_thread > :nth-child(4):hover {
   cursor: pointer;
   color: #000;
+}
+
+#profile-settings {
+  background: #7474BF;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#348AC7), to(#7474BF));
+  background: linear-gradient(to right, #348AC7, #7474BF);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#profile-settings .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#profile-settings .container .info-about-user {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 150px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=main.css.map */
