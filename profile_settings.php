@@ -22,19 +22,41 @@
                 $dateInterval = $dateNow->diff($creationDate); //get the difference between date object's
                 $dateResult; //variable to store different values
                 if(($dateInterval->m) < 1) {
-                    $dateResult = "It's less than 1 month old."; //echo this if the account age is < 1 month
+                    if(($dateInterval->d) < 1) {
+                        $dateResult = $dateInterval->h . " hours."; //echo this if the account age is < 1 day
+                    } else {
+                        $dateResult = $dateInterval->d ." days.";//echo this if the account age is > 1 day
+                    }
                 } else {
                     $dateResult = $dateInterval->m; //otherwise echo months
                 }
-                echo "<div class='info-about-user flex-container'>";
-                    echo "<p class='loged_user'>" . "<span>" . "Username: " . "</span>". $_SESSION["u_uid"] . "." ."</p>";
-                    echo "<p class='loged_name'>" . "<span>" . "Your First Name: " . "</span>" . $_SESSION["u_first"] . "." ."</p>";
-                    echo "<p class='loged_name'>" . "<span>" . "Your Last Name: " . "</span>" . $_SESSION["u_last"] . "." ."</p>";
-                    echo "<p class='creation_age'>" . "<span>" . "Account age: " . "</span>". $dateResult . "</p>";
-                    include_once 'project_form/user_thread_count.php';
-                    echo "<p class='thread-count'>Total thread count: " . $amount_of_threads . "</p>";
-                    echo "<p class='post_count'>Amount of posts: " .  $amount_of_posts . "</p>";   
-                echo "</div>"; 
+                echo "<div class='user-prof-container flex-container'>";
+                    echo "<div class='user-profile-pic flex-container'>";
+                        echo "<div class='icon-div flex-container'>";
+                            echo "<i class='far fa-user fa-5x'></i>";
+                        echo "</div>";
+                        echo "<form method='post' action='project_form/pic_upload.php' enctype='multipart/form-data' class='flex-container' id='picForm'>";
+                            echo  "<label for='pic-upload' class='file-style'>
+                                    Browse
+                                    <input type='file' id='pic-upload' name='pic-upload' required/>
+                                    </label>";
+                            echo "<input class='button' type='submit' name='pic-submit' value='Upload'/>";
+                            include_once 'project_form/err_variable.php';
+                            if ($ep_msg !== "") {
+                                echo "<p>" . $ep-msg . "</p>";
+                            }
+                        echo "</form>";
+                    echo "</div>";
+                    echo "<div class='info-about-user flex-container'>";
+                        echo "<p class='loged_user'><i class='fas fa-user-alt'></i>" . "<span>" . "Username: " . "</span>". $_SESSION["u_uid"] . "." ."</p>";
+                        echo "<p class='loged_name'><i class='far fa-id-card'></i>" . "<span>" . "First Name: " . "</span>" . $_SESSION["u_first"] . "." ."</p>";
+                        echo "<p class='loged_name'><i class='far fa-id-card'></i>" . "<span>" . "Last Name: " . "</span>" . $_SESSION["u_last"] . "." ."</p>";
+                        echo "<p class='creation_age'><i class='fas fa-user-clock'></i>" . "<span>" . "Account age: " . "</span>". $dateResult . "</p>";
+                        include_once 'project_form/user_thread_count.php';
+                        echo "<p class='thread-count'><i class='fas fa-user-edit'></i>". "<span>" . "Total threads: " . "</span>" . $amount_of_threads . ".</p>";
+                        echo "<p class='post_count'><i class='fas fa-user-edit'></i>". "<span>" . "Amount of posts: " . "</span>" .  $amount_of_posts . ".</p>";   
+                    echo "</div>"; 
+                echo "</div>";
                 echo '  <form class="log_out_form" action="project_form/log_out.php" method="post">
                                 <button class="button" type="submit" name="submit">Logout</button>
                             </form>';
