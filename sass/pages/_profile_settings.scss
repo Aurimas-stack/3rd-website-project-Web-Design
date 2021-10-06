@@ -4,12 +4,93 @@
     background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     .container {
         @include column-flex;
-        .info-about-user {
-            @include column-flex;
-            margin-top:150px;
-            background:$white;
-            padding:10px;
-            border-radius: $border-radius;
+        .user-prof-container {
+            @include row-flex;
+            .user-profile-pic {
+                @include column-flex;
+                margin-right: 20px;
+                margin-top:150px;
+                .icon-div {
+                    width:200px;
+                    height: 250px;
+                    background-color: $white;
+                    @include column-flex;
+                    border-radius: $border-radius;
+                    >i {
+                    margin-top: 80px;
+                    }
+                }
+                >form {
+                    @include column-flex;
+                    margin-top:15px;
+                    #pic-upload {
+                        display:none;
+                    }
+                    .file-style {
+                        display: inline-block;
+                        cursor: $pointer;
+                        background-color: $white;
+                        padding:10px;
+                        border-radius: $border-radius * 2;
+                        font-weight: 500;
+                        font-size: 1.1rem;
+                        letter-spacing: $small-spacing;
+                        &:hover {
+                            background-color: #C77134;
+                            color:$white;
+                        }
+                    }
+                    .button {
+                        margin-top:10px;
+                        padding: 10px;
+                        color:$black;
+                        text-transform: none;
+                        letter-spacing: normal;
+                        &:hover {
+                            background-color: #C77134;
+                            color:$white;
+                        }
+                    }
+                }
+            }
+            .info-about-user {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top:130px;
+                background:$white;
+                padding:20px;
+                border-radius: $border-radius * 2;
+                p {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    i {
+                        color:#C77134;
+                    }
+                    span {
+                        color:#C77134;
+                        font-weight: 600;
+                        padding-left:10px;
+                        letter-spacing: $small-spacing;
+                    }
+                }
+            }
+        }
+        >form {
+            margin-top:50px;
+            .button {
+                &:hover {
+                    background-color:rgb(182, 47, 47);
+                }
+            }
+        }
+        >a {
+            margin-top:50px;
+            text-decoration: none;
+            @include section-text($c: $white);
+            &:hover {
+                cursor:$pointer;
+                color:rgb(27, 240, 38);
+            }
         }
     }
 }
