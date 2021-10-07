@@ -43,7 +43,12 @@
                                 foreach($t_responses as $t_response) {
                                         echo "<div class='u_resp_tt flex-container'>";
                                             echo "<div class='flex-container'>";
-                                                echo "<p><i class='far fa-user'></i></p>";
+                                                include_once 'project_form/check_profile_pic.php';
+                                                if($t_response['name'] > 0) {//if user uploaded the photo show it in the profile
+                                                    echo "<img src='pic_upload/" . $t_response['name'] . "' . alt='".$t_response['name']."'>";
+                                                } else { //if user havent uploaded a photo (or deleted it) show the icon
+                                                    echo "<p><i class='far fa-user'></i></p>";
+                                                }
                                                 echo "<p>" . $t_response['responded_user'] . ":". "</p>";
                                             echo "</div>";
                                             echo "<p>" . $t_response['response'] . "</p>";

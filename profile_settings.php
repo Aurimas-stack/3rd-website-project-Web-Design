@@ -33,17 +33,27 @@
                 echo "<div class='user-prof-container flex-container'>";
                     echo "<div class='user-profile-pic flex-container'>";
                         echo "<div class='icon-div flex-container'>";
-                            echo "<i class='far fa-user fa-5x'></i>";
+                            include_once 'project_form/check_profile_pic.php';
+                            if($pic_check_result > 0) {//if user uploaded the photo show it in the profile
+                                echo "<img src='pic_upload/" . $pic_check_result['name'] . "' . alt='".$pic_check_result['name']."'>";
+                            } else { //if user havent uploaded a photo (or deleted it) show the icon
+                                echo "<i class='far fa-user fa-5x'></i>";
+                            }
+    
                         echo "</div>";
+                        if($pic_check_result > 0) {//if there's a user photo uploaded - display delete button which deletes the photo
+                            echo "<form method='post' action='project_form/delete_profile_pic.php' id='delPicForm'>";
+                                echo "<input class='button' name='del-pic' type='submit' value='Delete Photo'>";
+                            echo "</form>";
+                        }
                         echo "<form method='post' action='project_form/pic_upload.php' enctype='multipart/form-data' class='flex-container' id='picForm'>";
                             echo  "<label for='pic-upload' class='file-style'>
                                     Browse
                                     <input type='file' id='pic-upload' name='pic-upload' required/>
                                     </label>";
                             echo "<input class='button' type='submit' name='pic-submit' value='Upload'/>";
-                            include_once 'project_form/err_variable.php';
-                            if ($ep_msg !== "") {
-                                echo "<p>" . $ep-msg . "</p>";
+                            if (isset($_SESSION['uploadError']) && $_SESSION['uploadError'] !== "") {//show uploads errors (only if there're any)
+                                echo "<p id='upldErr'>" . $_SESSION['uploadError'] . "</p>"; //after succesful upload there are no errors shown
                             }
                         echo "</form>";
                     echo "</div>";
