@@ -1,7 +1,7 @@
 <?php
     try {
         include_once 'db_name.php';
-        $query = $pdo->prepare("SELECT thread_title, user_name, date_created, id FROM `threads` WHERE thread_text != ''");
+        $query = $pdo->prepare("SELECT thread_title, user_name, date_created, id, is_thread_locked FROM `threads` WHERE thread_text != ''");
         $query->execute();
         $rows = $query->fetchAll();
     } catch (\PDOException $e) {
