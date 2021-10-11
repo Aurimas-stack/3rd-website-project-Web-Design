@@ -25,7 +25,7 @@
                     if(isset($_GET['id'])) {
                         $thread_id = $_GET['id'];
                         $_SESSION['thread-id'] = $thread_id; //ID TO GET BACK TO ORIGINAL THREAD AFTER MAKING A RESPONSE TO THAT THREAD
-                        $query = $pdo->prepare("SELECT thread_title, thread_text, user_name, date_created, id FROM `threads` WHERE id = :ident");
+                        $query = $pdo->prepare("SELECT thread_title, thread_text, user_name, date_created, id, is_thread_locked FROM `threads` WHERE id = :ident");
                         $query->bindPARAM(':ident', $thread_id);
                         $query->execute();
                         $infos = $query->fetchAll();
@@ -57,12 +57,14 @@
                                     echo "<div class='response_pagin flex-container'>";
                                     echo "</div>";
                                 echo "</div>";
-                                echo "<form class='flex-container' method='post' action='project_form/thread_response.php'>";
-                                    echo "<textarea rows='4' placeholder='Leave your response...' maxLength='300' name='r_text' required></textarea>";
-                                    $_SESSION['u_thread_title'] = $info['thread_title']; //USED TO INSERT TITLE NAME INTO DB
-                                    echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
-                                echo "</form>";
-                                echo "<a href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";
+                                $_SESSION['u_thread_title'] = $info['thread_title']; //USED TO INSERT TITLE NAME INTO DB
+                                if($info['is_thread_locked'] === "FALSE" || $info['is_thread_locked'] === "NULL") {
+                                    echo "<form id='user-resp-form' class='flex-container' method='post' action='project_form/thread_response.php'>";
+                                        echo "<textarea rows='4' placeholder='Leave your response...' maxLength='300' name='r_text' required></textarea>";
+                                        echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
+                                    echo "</form>";
+                                }
+                                echo "<a id='leaving_responses' href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";
                             echo "</div>";                   
                         }
                     }

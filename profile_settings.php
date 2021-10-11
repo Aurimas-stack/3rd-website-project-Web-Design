@@ -51,6 +51,7 @@
                                     Browse
                                     <input type='file' id='pic-upload' name='pic-upload' required/>
                                     </label>";
+                            echo "<p id='pic-name'></p>";
                             echo "<input class='button' type='submit' name='pic-submit' value='Upload'/>";
                             if (isset($_SESSION['uploadError']) && $_SESSION['uploadError'] !== "") {//show uploads errors (only if there're any)
                                 echo "<p id='upldErr'>" . $_SESSION['uploadError'] . "</p>"; //after succesful upload there are no errors shown

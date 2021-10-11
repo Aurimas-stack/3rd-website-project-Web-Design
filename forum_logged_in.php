@@ -39,8 +39,21 @@
                                         date('Y-M-d', strtotime($row['date_created'])) . "</p>";
                                     if($_SESSION["u_uid"] == 'Tester1234') {
                                         echo "<div class='a-d-t flex-container'>";
-                                            echo "<i id='".$row['id']."' class='fas fa-trash-alt'></i>";
-                                            echo "<p>Delete Thread</p>";
+                                            echo "<div class='trashcan flex-container'>";
+                                                echo "<i id='".$row['id']."' class='fas fa-trash-alt'></i>";
+                                                echo "<p>Delete Thread</p>";
+                                            echo "</div>";
+                                                if($row['is_thread_locked'] === 'FALSE' || $row['is_thread_locked'] === 'NULL') {
+                                                    echo "<div class='lock-t l-thread-".$row['id']." flex-container'>";
+                                                        echo "<i class='fas fa-lock'></i>";
+                                                        echo "<p>Lock The Thread</p>";
+                                                    echo "</div>"; 
+                                                } else {
+                                                    echo "<div class='unlock-t ul-thread-".$row['id']." flex-container'>";
+                                                        echo "<i class='fas fa-lock-open'></i>";                                      
+                                                        echo "<p>Unlock The Thread</p>";
+                                                    echo "</div>";                                                      
+                                                }                                                        
                                         echo "</div>";
                                     }
                                 echo "</div>";
