@@ -141,6 +141,10 @@ $(document).ready(() => {
     } else {
         $('.u_resp_tt_cont').css("display", "block");
     }
+    //change section height if the response form is not displayed (locked)
+    if($('#user-resp-form').length === 0 && $('.u_resp_tt_cont').children().length > 1) {
+        $('.opend_thread').addClass("page_section_height");
+    }
     //pagination for user responses
     let items = $('.u_resp_tt');
     let numItems = $(".u_resp_tt").length;
@@ -268,8 +272,41 @@ $(document).ready(() => {
             })
         }, 30000) //real 30 second timer
     }
-
-    
+    //clicking on the lock lock selected thread
+    $('.lock-t').on("click", event => {
+        let selClass = $(event.target).parent().attr('class').split(" ")[1];//select icons parent second class
+        let properThreadID = selClass.substr(9);//get specific thread id from selected class name
+        $.ajax({
+            type: "POST",
+            url:'project_form/lock_thread.php',
+            data:{l_thread_id:properThreadID},
+            success: function() {
+                location.reload();
+            }
+        });
+    });
+    //clicking on the uncloked lock unlock selected thread
+    $('.unlock-t').on("click", event => {
+        let ul_selClass = $(event.target).parent().attr('class').split(" ")[1];//select icons parent second class
+        let ul_properThreadID = ul_selClass.substr(10);//get specific thread id from selected class name
+        $.ajax({
+            type: "POST",
+            url:'project_form/unlock_thread.php',
+            data:{ul_thread_id:ul_properThreadID},
+            success: function() {
+                location.reload();
+            }
+        });
+    });
+    //display photo name before uploading
+    $('#pic-upload').on("change", () => {
+        let selectedPic = $('#pic-upload').prop("files");
+        $('#pic-name').html("");
+        for(let thisPic = 0; thisPic < selectedPic.length; thisPic++) {
+            $('#pic-name').append("<span>Selected:</span>" + selectedPic[thisPic].name);
+        }
+    });
+   
 });
 
 //javascript site header mobile menu show function
