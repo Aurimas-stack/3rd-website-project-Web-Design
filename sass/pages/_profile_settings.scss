@@ -38,6 +38,17 @@
                 >form {
                     @include column-flex;
                     margin-top:15px;
+                    #pic-name {
+                        margin:0;
+                        font-size: 1rem;
+                        color:$black;
+                        font-weight: 400;
+                        >span {
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                            color:$white;
+                        }
+                    }
                     #pic-upload {
                         display:none;
                     }

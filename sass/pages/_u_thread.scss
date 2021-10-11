@@ -92,7 +92,7 @@
             }
             
         }
-        >:nth-child(3){
+        #user-resp-form{
             width:500px;
             padding:20px;
             background-color:$white;
@@ -126,7 +126,7 @@
                 }
             }
         }
-        >:nth-child(4) {
+        #leaving_responses {
             margin-top:50px;
             text-decoration: none;
             @include section-text($c: $white);

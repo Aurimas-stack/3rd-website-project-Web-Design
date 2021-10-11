@@ -66,7 +66,11 @@
                 border: 2px $black solid;
                 @include column-flex;
                 .a-d-t {
-                    @include row-flex;
+                    @include column-flex;
+                    >div {
+                        @include row-flex;
+                        margin:5px 0;
+                    }
                     i {
                         &:hover {
                             cursor: $pointer;
