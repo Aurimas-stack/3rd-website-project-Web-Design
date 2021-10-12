@@ -43,13 +43,15 @@
                                 foreach($t_responses as $t_response) {
                                         echo "<div class='u_resp_tt flex-container'>";
                                             echo "<div class='flex-container'>";
-                                                include_once 'project_form/check_profile_pic.php';
+                                                if($_SESSION["u_uid"] == 'Tester1234' && $t_response['responded_user'] !== 'Tester1234') {
+                                                    echo "<i class='fas fa-ban'></i>";
+                                                }
                                                 if($t_response['name'] > 0) {//if user uploaded the photo show it in the profile
                                                     echo "<img src='pic_upload/" . $t_response['name'] . "' . alt='".$t_response['name']."'>";
                                                 } else { //if user havent uploaded a photo (or deleted it) show the icon
                                                     echo "<p><i class='far fa-user'></i></p>";
                                                 }
-                                                echo "<p>" . $t_response['responded_user'] . ":". "</p>";
+                                                echo "<p class='user_posting_r'>" . $t_response['responded_user'] . ":". "</p>";
                                             echo "</div>";
                                             echo "<p>" . $t_response['response'] . "</p>";
                                         echo "</div>";
@@ -58,11 +60,24 @@
                                     echo "</div>";
                                 echo "</div>";
                                 $_SESSION['u_thread_title'] = $info['thread_title']; //USED TO INSERT TITLE NAME INTO DB
-                                if($info['is_thread_locked'] === "FALSE" || $info['is_thread_locked'] === "NULL") {
-                                    echo "<form id='user-resp-form' class='flex-container' method='post' action='project_form/thread_response.php'>";
-                                        echo "<textarea rows='4' placeholder='Leave your response...' maxLength='300' name='r_text' required></textarea>";
-                                        echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
-                                    echo "</form>";
+                                if($info['is_thread_locked'] === "FALSE" || $info['is_thread_locked'] === "NULL") {//if thread is not locked allow to make responses
+                                    if($_SESSION['is_u_restr'] !== 'TRUE') {//if user is not restricted to post
+                                        echo "<form id='user-resp-form' class='flex-container' method='post' action='project_form/thread_response.php'>";
+                                            echo "<textarea rows='4' placeholder='Leave your response...' maxLength='300' name='r_text' required></textarea>";
+                                            echo "<button class='button' type='submit' name='submit_response'>Respond</button>";
+                                        echo "</form>";
+                                    }
+                                    if($_SESSION['is_u_restr'] === 'TRUE') {
+                                        echo "<div class='user-restricted flex-container'>";
+                                            echo "<i class='fas fa-user-lock fa-3x'></i>";
+                                            echo "<p>Your Account is restricted. You can't post due to forum violations.</p>";
+                                        echo "</div>";
+                                    }
+                                } else {
+                                    echo "<div class='locked-t-response flex-container'>";
+                                        echo "<i class='fas fa-lock fa-5x'></i>";
+                                        echo "<p>Thread is Locked</p>";
+                                    echo "</div>";
                                 }
                                 echo "<a id='leaving_responses' href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";
                             echo "</div>";                   

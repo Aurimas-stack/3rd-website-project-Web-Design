@@ -20,8 +20,11 @@
             include_once 'user_nav/user_nav.php';
             echo "<section class='forum_name_look'>";
                 echo "<div class='flex-container container'>";
+                    if($_SESSION["u_uid"] == 'Tester1234') {
+                        echo "<h3 class='a-link'><a href='admin_panel.php'><i class='far fa-file-alt'></i>Admin Panel</a></h3>";
+                    }
                     echo "<h1><i class='fas fa-book-reader'></i>Our Forum</h1>";
-                    echo "<h3><a href='thread_maker.php'>Make a thread <i class='fas fa-arrow-right'></i></a></h3>";
+                    echo "<h3 class='t-maker-link'><a href='thread_maker.php'>Make a thread <i class='fas fa-arrow-right'></i></a></h3>";
                     echo "<h3>OR</h3>";
                     echo "<h3>View The threads below</h3>";
                 echo "</div>";
@@ -41,17 +44,17 @@
                                         echo "<div class='a-d-t flex-container'>";
                                             echo "<div class='trashcan flex-container'>";
                                                 echo "<i id='".$row['id']."' class='fas fa-trash-alt'></i>";
-                                                echo "<p>Delete Thread</p>";
+                                                echo "<p class='t-i-del'>Delete Thread</p>";
                                             echo "</div>";
                                                 if($row['is_thread_locked'] === 'FALSE' || $row['is_thread_locked'] === 'NULL') {
                                                     echo "<div class='lock-t l-thread-".$row['id']." flex-container'>";
                                                         echo "<i class='fas fa-lock'></i>";
-                                                        echo "<p>Lock The Thread</p>";
+                                                        echo "<p class='lock-i-p'>Lock The Thread</p>";
                                                     echo "</div>"; 
                                                 } else {
                                                     echo "<div class='unlock-t ul-thread-".$row['id']." flex-container'>";
                                                         echo "<i class='fas fa-lock-open'></i>";                                      
-                                                        echo "<p>Unlock The Thread</p>";
+                                                        echo "<p class='unlock-i-p'>Unlock The Thread</p>";
                                                     echo "</div>";                                                      
                                                 }                                                        
                                         echo "</div>";
