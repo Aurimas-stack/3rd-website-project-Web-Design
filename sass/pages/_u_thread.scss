@@ -83,6 +83,13 @@
                     margin-right:15px;
                     @include row-flex;
                     font-weight: 600;
+                    .fa-ban {
+                        margin-right:5px;
+                        &:hover {
+                            color:rgb(204, 36, 36);
+                            cursor: $pointer;
+                        }
+                    }
                     >img {
                         width:30px;
                         height: 30px;
@@ -91,6 +98,28 @@
                 }
             }
             
+        }
+        .user-restricted {
+            margin-top:30px;
+            @include row-flex;
+            >i,p {
+                color:rgb(204, 36, 36);
+            }
+            >p {
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
+        }
+        .locked-t-response {
+            margin-top:30px;
+            @include column-flex;
+            >i, p {
+                color:rgb(204, 36, 36);
+            }
+            >p {
+                font-size: 1.3rem;
+                font-weight: 600;
+            }
         }
         #user-resp-form{
             width:500px;

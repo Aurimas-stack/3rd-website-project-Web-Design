@@ -1,0 +1,50 @@
+#adm_in {
+    background: #337173;  /* fallback for old browsers */
+    .user_i_cont {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top:50px;
+        background:#4dcdd2;
+        max-width: 450px;
+        padding:10px;
+        border-radius: $border-radius*2;
+        .user_cont {
+            margin:10px 0;
+            @include row-flex;
+            >:nth-child(1) {
+                margin-right: 10px;
+                font-weight: 600;
+            }
+            .restr-p {
+                font-weight: 600;
+            }
+            .restr-p, .not-restr-p {
+                margin-left:10px;
+            }
+            .u_name {
+                text-transform: uppercase;
+            }
+            .fa-unlock-alt {
+                color:$black;
+                &:hover {
+                    color:#2a6769;
+                }
+            }
+            .fa-ban {
+                color:rgb(204, 36, 36);
+                &:hover {
+                    color:rgb(224, 28, 28);
+                }
+            }
+            i {
+                margin-left: 20px;
+                &:hover {
+                    cursor:$pointer;
+                }
+            }
+            p {
+                margin:0;
+            }
+        }
+    }
+}

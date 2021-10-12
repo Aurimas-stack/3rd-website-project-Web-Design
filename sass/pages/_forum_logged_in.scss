@@ -12,7 +12,17 @@
                 color:$black;
                 letter-spacing: $small-spacing;
             }
-            >:nth-child(2) {
+            .a-link {
+                a {
+                    text-decoration: none;
+                    color:$white;
+                    &:hover{
+                        cursor: $pointer;
+                        color:$black;
+                    }
+                };
+            }
+            .t-maker-link {
                 a {
                     text-decoration: none;
                     color:$black;
@@ -70,6 +80,18 @@
                     >div {
                         @include row-flex;
                         margin:5px 0;
+                        .fa-lock {
+                            color:rgb(204, 36, 36);
+                            &:hover {
+                                color:#DE4545;
+                            }
+                        }
+                        .fa-lock-open {
+                            color:#2478CC;
+                            &:hover {
+                                color:#24CCCC;
+                            }
+                        }
                     }
                     i {
                         &:hover {
