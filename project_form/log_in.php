@@ -85,7 +85,8 @@
                             $_SESSION['u_last'] = $row['user_last'];
                             $_SESSION['u_email'] = $row['user_email'];
                             $_SESSION['u_uid'] = $row['user_uid'];
-                            $_SESSION['u_creation'] = $row['date_created']; 
+                            $_SESSION['u_creation'] = $row['date_created'];
+                            $_SESSION['is_u_restr'] = $row['post_restrictions']; 
                             header("Location: ../forum.php");
                             exit();
                         }
