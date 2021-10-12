@@ -306,6 +306,63 @@ $(document).ready(() => {
             $('#pic-name').append("<span>Selected:</span>" + selectedPic[thisPic].name);
         }
     });
+    //changes trashcan icon sibling <p> css after hovering
+    $('.fa-trash-alt').on("mouseover", function() {
+        $(this).siblings('.t-i-del').css("font-weight", "600");
+    });
+    $('.fa-trash-alt').on("mouseleave", function() {
+        $(this).siblings('.t-i-del').css("font-weight", "400");
+    });
+    //changes lock icon sibling <p> css after hovering
+    $('.fa-lock').on("mouseover", function() {
+        $(this).siblings('.lock-i-p').css("font-weight", "600");
+    });
+    $('.fa-lock').on("mouseleave", function() {
+        $(this).siblings('.lock-i-p').css("font-weight", "400");
+    });
+    //changes unlock icon sibling <p> css after hovering
+    $('.fa-lock-open').on("mouseover", function() {
+        $(this).siblings('.unlock-i-p').css("font-weight", "600");
+    });
+    $('.fa-lock-open').on("mouseleave", function() {
+        $(this).siblings('.unlock-i-p').css("font-weight", "400");
+    });
+    $('.fa-ban').on("click", event => {
+        let selUser = $(event.target).siblings('.user_posting_r').text();//select ban icon sibling (poster's name)
+        let selUserLength = selUser.length - 1;//selected username total length minus ":"
+        let realSelUser = selUser.substr(0, selUserLength);//complete username without ":"
+        $.ajax({
+            type: "POST",
+            url:'project_form/block_user.php',
+            data:{user_name:realSelUser},
+            success: function() {
+                location.reload();
+            }
+        });
+    });
+    $('.rmv_rstrc').on("click", event => {
+        let rmv_u_rs = $(event.target).siblings('.u_name').text();
+        $.ajax({
+            type:"POST",
+            url:"project_form/remove_user_block.php",
+            data:{free_u:rmv_u_rs},
+            success:function() {
+                location.reload();
+            }
+        })
+    });
+    //for admin panel ban icon
+    $('.adm_ban_i').on("click", event => {
+        let selUser2 = $(event.target).siblings('.u_name').text();;//select ban icon sibling (poster's name)
+        $.ajax({
+            type: "POST",
+            url:'project_form/block_user.php',
+            data:{user_name:selUser2},
+            success: function() {
+                location.reload();
+            }
+        });
+    });
    
 });
 
