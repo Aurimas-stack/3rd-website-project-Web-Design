@@ -19,22 +19,34 @@
         if(isset($_SESSION['u_id']) && $_SESSION["u_uid"] === 'Tester1234') {
             include_once 'user_nav/user_nav.php';
             include_once 'project_form/all_user_info.php';
-            echo "<div class='user_i_cont flex-container container'>";
-            $change_val = 1;
-            foreach($collect_users as $col_u) {
-                echo "<div class='user_cont flex-container'>";
-                    echo "<p>" . $change_val .".</p>";
-                    echo "<p class='u_name'>" . $col_u['user_uid'] . "</p>";
-                    if($col_u['post_restrictions'] === 'TRUE') {
-                        echo "<p class='restr-p'>RESTRICTED</p>";
-                        echo "<i class='fas fa-unlock-alt rmv_rstrc'>(remove restriction)</i>";
-                    } else {
-                        echo "<p class='not-restr-p'>Not restricted</p>";
-                        echo "<i class='fas fa-ban adm_ban_i'>(restrict user)</i>";
-                    }
+            echo "<div id='put_restr' class='flex-container'>";
+                echo "<i class='fas fa-user-lock fa-2x'></i>";
+                echo "<p><span class='user_n_sp'></span> is restricted!</p>";
+            echo "</div>";
+            echo "<div id='restr_rmvd' class='flex-container'>";
+                echo "<i class='far fa-check-circle fa-2x'></i>";
+                echo "<p>Restriction for <span class='user_n_sp'></span> removed!</p>";
+            echo "</div>";
+            echo "<div class='container flex-container'>";
+                echo "<div class='user_i_cont flex-container'>";
+                $change_val = 1;
+                foreach($collect_users as $col_u) {
+                    echo "<div class='user_cont flex-container'>";
+                        echo "<p>" . $change_val .".</p>";
+                        echo "<p class='u_name'>" . $col_u['user_uid'] . "</p>";
+                        if($col_u['post_restrictions'] === 'TRUE') {
+                            echo "<p class='restr-p'>RESTRICTED</p>";
+                            echo "<i class='fas fa-unlock-alt rmv_rstrc'>(remove restriction)</i>";
+                        } else {
+                            echo "<p class='not-restr-p'>Not restricted</p>";
+                            echo "<i id='adm_ban_i' class='fas fa-ban'>(restrict user)</i>";
+                        }
+                    echo "</div>";
+                    $change_val++;
+                }
                 echo "</div>";
-                $change_val++;
-            }
+                echo "<div id='admin_pagin' class='flex-container'></div>";
+                echo "<a id='l_adm' href='forum_logged_in.php'><i class='fas fa-arrow-left'></i> Go back to the posts</a>";
             echo "</div>";
         }
     ?>

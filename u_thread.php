@@ -44,7 +44,17 @@
                                         echo "<div class='u_resp_tt flex-container'>";
                                             echo "<div class='flex-container'>";
                                                 if($_SESSION["u_uid"] == 'Tester1234' && $t_response['responded_user'] !== 'Tester1234') {
-                                                    echo "<i class='fas fa-ban'></i>";
+                                                    include_once 'project_form/all_user_info.php';
+                                                    foreach($collect_users as $col_usr) {
+                                                        if($t_response['responded_user'] === $col_usr['user_uid']) {
+                                                            if($col_usr['post_restrictions'] !== "TRUE") {
+                                                                echo "<i id='t_u_ban' class='fas fa-ban'></i>";
+                                                            } else {
+                                                                echo "<p id='rst_msg'>(restricted)</p>";
+                                                            }
+                                                        }
+                                                    }
+                                
                                                 }
                                                 if($t_response['name'] > 0) {//if user uploaded the photo show it in the profile
                                                     echo "<img src='pic_upload/" . $t_response['name'] . "' . alt='".$t_response['name']."'>";
