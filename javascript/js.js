@@ -157,8 +157,8 @@ $(document).ready(() => {
         displayedPages: 3,
         nextText: "&raquo;",
         onPageClick: function (pageNumber) {
-            var showFrom = perPage * (pageNumber - 1);
-            var showTo = showFrom + perPage;
+            let showFrom = perPage * (pageNumber - 1);
+            let showTo = showFrom + perPage;
             items.hide().slice(showFrom, showTo).show();
         }
     });
@@ -174,8 +174,8 @@ $(document).ready(() => {
         displayedPages: 3,
         nextText: "&raquo;",
         onPageClick: function (threadNumber) {
-            var showFrom = threadsPerPage * (threadNumber - 1);
-            var showTo = showFrom + threadsPerPage;
+            let showFrom = threadsPerPage * (threadNumber - 1);
+            let showTo = showFrom + threadsPerPage;
             posted_threads.hide().slice(showFrom, showTo).show();
         }
     });
@@ -327,7 +327,7 @@ $(document).ready(() => {
     $('.fa-lock-open').on("mouseleave", function() {
         $(this).siblings('.unlock-i-p').css("font-weight", "400");
     });
-    $('.fa-ban').on("click", event => {
+    $('#t_u_ban').on("click", event => {
         let selUser = $(event.target).siblings('.user_posting_r').text();//select ban icon sibling (poster's name)
         let selUserLength = selUser.length - 1;//selected username total length minus ":"
         let realSelUser = selUser.substr(0, selUserLength);//complete username without ":"
@@ -340,6 +340,22 @@ $(document).ready(() => {
             }
         });
     });
+    //for admin panel ban icon
+    $('#adm_ban_i').on("click", event => {
+        let selUser2 = $(event.target).siblings('.u_name').text();//select ban icon sibling (poster's name)
+        $.ajax({
+            type: "POST",
+            url:'project_form/block_user.php',
+            data:{user_name:selUser2},
+            success:function() {
+                $('.user_n_sp').text(selUser2);
+                $('#put_restr').addClass('show_msg');
+                setTimeout(function() {
+                    location.reload();
+                }, 1000);
+            }
+        });
+    });
     $('.rmv_rstrc').on("click", event => {
         let rmv_u_rs = $(event.target).siblings('.u_name').text();
         $.ajax({
@@ -347,21 +363,48 @@ $(document).ready(() => {
             url:"project_form/remove_user_block.php",
             data:{free_u:rmv_u_rs},
             success:function() {
-                location.reload();
+                $('.user_n_sp').text(rmv_u_rs);
+                $('#restr_rmvd').addClass('show_msg');
+                setTimeout(function () { 
+                    location.reload();
+                }, 1000)
             }
         })
     });
-    //for admin panel ban icon
-    $('.adm_ban_i').on("click", event => {
-        let selUser2 = $(event.target).siblings('.u_name').text();;//select ban icon sibling (poster's name)
-        $.ajax({
-            type: "POST",
-            url:'project_form/block_user.php',
-            data:{user_name:selUser2},
-            success: function() {
-                location.reload();
-            }
-        });
+    /*
+    let posted_threads = $('.thread_title_box');
+    let num_threads = $('.thread_title_box').length;
+    let threadsPerPage = 5;
+    posted_threads.slice(threadsPerPage).hide();
+    $('.thread_pagin').pagination({
+        items: num_threads,
+        itemsOnPage: threadsPerPage,
+        prevText: "&laquo;",
+        displayedPages: 3,
+        nextText: "&raquo;",
+        onPageClick: function (threadNumber) {
+            let showFrom = threadsPerPage * (threadNumber - 1);
+            let showTo = showFrom + threadsPerPage;
+            posted_threads.hide().slice(showFrom, showTo).show();
+        }
+    });
+    */
+    //pagination for admin panel users
+    let user_box = $('.user_cont');
+    let num_of_users = $('.user_cont').length;
+    let usersPerPage = 10;
+    user_box.slice(usersPerPage).hide();
+    $('#admin_pagin').pagination({
+        items: num_of_users,
+        itemsOnPage:usersPerPage,
+        prevText: "&laquo;",
+        displayedPages: 3,
+        nextText: "&raquo;",
+        onPageClick: function (userNumb) {
+            let showFrom = usersPerPage  * (userNumb - 1);
+            let showTo = showFrom + usersPerPage ;
+            user_box.hide().slice(showFrom, showTo).show();
+        }
     });
    
 });
