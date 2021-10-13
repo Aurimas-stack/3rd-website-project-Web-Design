@@ -83,6 +83,11 @@
                     margin-right:15px;
                     @include row-flex;
                     font-weight: 600;
+                    #rst_msg {
+                        font-size: 0.7rem;
+                        font-style: italic;
+                        color:rgb(204, 36, 36);
+                    }
                     .fa-ban {
                         margin-right:5px;
                         &:hover {
@@ -120,6 +125,7 @@
                 font-size: 1.3rem;
                 font-weight: 600;
             }
+
         }
         #user-resp-form{
             width:500px;

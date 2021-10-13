@@ -84,6 +84,20 @@
                 margin-top:130px;
                 background:$white;
                 padding:20px;
+                #delAcc {
+                    text-decoration: none;
+                    color:$black;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    i {
+                        margin:10px 0;
+                        padding-right:10px;
+                    }
+                    &:hover {
+                        color:rgb(207, 26, 26); 
+                        cursor:$pointer;
+                    }
+                }
                 border-radius: $border-radius * 2;
                 p {
                     font-size: 1.1rem;
