@@ -3079,6 +3079,12 @@ body {
   font-weight: 600;
 }
 
+#thread_in .opend_thread > :nth-child(2) > div > :nth-child(1) #rst_msg {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #cc2424;
+}
+
 #thread_in .opend_thread > :nth-child(2) > div > :nth-child(1) .fa-ban {
   margin-right: 5px;
 }
@@ -3360,6 +3366,23 @@ body {
   border-radius: 10px;
 }
 
+#profile-settings .container .user-prof-container .info-about-user #delAcc {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#profile-settings .container .user-prof-container .info-about-user #delAcc i {
+  margin: 10px 0;
+  padding-right: 10px;
+}
+
+#profile-settings .container .user-prof-container .info-about-user #delAcc:hover {
+  color: #cf1a1a;
+  cursor: pointer;
+}
+
 #profile-settings .container .user-prof-container .info-about-user p {
   font-size: 1.1rem;
   font-weight: 500;
@@ -3400,12 +3423,162 @@ body {
   color: #1bf026;
 }
 
+.show_msg {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.hide_msg {
+  display: none !important;
+}
+
 #adm_in {
   background: #337173;
   /* fallback for old browsers */
 }
 
-#adm_in .user_i_cont {
+#adm_in #restr_rmvd {
+  display: none;
+  background-color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  border: 2px solid #000;
+  padding: 20px;
+  top: 100px;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+#adm_in #restr_rmvd > i {
+  color: #20a720;
+}
+
+#adm_in #restr_rmvd > p {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+#adm_in #put_restr {
+  display: none;
+  background-color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  border: 2px solid #000;
+  padding: 20px;
+  top: 100px;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+#adm_in #put_restr > i {
+  color: #cc2424;
+}
+
+#adm_in #put_restr > p {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+#adm_in #admin_pagin {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: none;
+}
+
+#adm_in #admin_pagin ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#adm_in #admin_pagin ul .active {
+  background-color: #fff;
+}
+
+#adm_in #admin_pagin ul li {
+  list-style: none;
+  margin-left: 5px;
+}
+
+#adm_in #admin_pagin ul li .current {
+  color: #000;
+}
+
+#adm_in #admin_pagin ul li a {
+  text-decoration: none;
+  color: #000;
+  padding: 4px;
+}
+
+#adm_in #admin_pagin ul li a:hover {
+  cursor: pointer;
+  background-color: #666;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#adm_in .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#adm_in .container #l_adm {
+  margin-top: 50px;
+  text-decoration: none;
+  width: 50%;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+}
+
+#adm_in .container #l_adm:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+#adm_in .container .user_i_cont {
+  margin-top: 100px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3413,14 +3586,13 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: 50px;
   background: #4dcdd2;
   max-width: 450px;
   padding: 10px;
   border-radius: 10px;
 }
 
-#adm_in .user_i_cont .user_cont {
+#adm_in .container .user_i_cont .user_cont {
   margin: 10px 0;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -3431,48 +3603,142 @@ body {
           align-items: center;
 }
 
-#adm_in .user_i_cont .user_cont > :nth-child(1) {
+#adm_in .container .user_i_cont .user_cont > :nth-child(1) {
   margin-right: 10px;
   font-weight: 600;
 }
 
-#adm_in .user_i_cont .user_cont .restr-p {
+#adm_in .container .user_i_cont .user_cont .restr-p {
   font-weight: 600;
 }
 
-#adm_in .user_i_cont .user_cont .restr-p, #adm_in .user_i_cont .user_cont .not-restr-p {
+#adm_in .container .user_i_cont .user_cont .restr-p, #adm_in .container .user_i_cont .user_cont .not-restr-p {
   margin-left: 10px;
 }
 
-#adm_in .user_i_cont .user_cont .u_name {
+#adm_in .container .user_i_cont .user_cont .u_name {
   text-transform: uppercase;
 }
 
-#adm_in .user_i_cont .user_cont .fa-unlock-alt {
+#adm_in .container .user_i_cont .user_cont .fa-unlock-alt {
   color: #000;
 }
 
-#adm_in .user_i_cont .user_cont .fa-unlock-alt:hover {
+#adm_in .container .user_i_cont .user_cont .fa-unlock-alt:hover {
   color: #2a6769;
 }
 
-#adm_in .user_i_cont .user_cont .fa-ban {
+#adm_in .container .user_i_cont .user_cont .fa-ban {
   color: #cc2424;
 }
 
-#adm_in .user_i_cont .user_cont .fa-ban:hover {
+#adm_in .container .user_i_cont .user_cont .fa-ban:hover {
   color: #e01c1c;
 }
 
-#adm_in .user_i_cont .user_cont i {
+#adm_in .container .user_i_cont .user_cont i {
   margin-left: 20px;
 }
 
-#adm_in .user_i_cont .user_cont i:hover {
+#adm_in .container .user_i_cont .user_cont i:hover {
   cursor: pointer;
 }
 
-#adm_in .user_i_cont .user_cont p {
+#adm_in .container .user_i_cont .user_cont p {
+  margin: 0;
+}
+
+#delete_acc {
+  background: #7474BF;
+}
+
+#delete_acc .container {
+  max-width: 600px;
+  margin-top: 200px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#delete_acc .container > :nth-child(2) {
+  margin-top: 50px;
+}
+
+#delete_acc .container > :nth-child(2) .button {
+  color: #000;
+}
+
+#delete_acc .container #delAccForm {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#delete_acc .container #delAccForm .button {
+  margin-top: 20px;
+  color: #000;
+}
+
+#delete_acc .container #delAccForm .button:hover {
+  background-color: #b62f2f;
+  color: #fff;
+}
+
+#delete_acc .container #delAccForm > div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+#delete_acc .container #delAccForm > div > input {
+  border: none;
+  color: #000;
+  font-size: 1.1rem;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#delete_acc .container #delAccForm > div > input:focus {
+  outline: none;
+}
+
+#delete_acc .container #delAccForm > div > input::-webkit-input-placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+#delete_acc .container #delAccForm > div > input:-ms-input-placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+#delete_acc .container #delAccForm > div > input::-ms-input-placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+#delete_acc .container #delAccForm > div > input::placeholder {
+  color: #000;
+  font-size: 1.1rem;
+}
+
+#delete_acc .container #delAccForm > div > p {
+  padding-bottom: 5px;
+  font-weight: 500;
+  font-size: 1.2rem;
   margin: 0;
 }
 /*# sourceMappingURL=main.css.map */
