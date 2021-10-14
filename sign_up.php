@@ -42,7 +42,7 @@
                             $newUser->execute(array(':first' => $first, ':last' => $last, ':email' => $email,
                             ':uid' => $uid, ':hashedPwd' => $hashedPwd));
                             $first = $last = $email = $uid = $pwd = NULL;
-                            header("Location: forum.php");
+                            header("Location: success_acc_creat.php");
                             exit();
                         }
                     }

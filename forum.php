@@ -54,7 +54,7 @@
                 } else {
                     echo '<form class="flex-container" method="post" action="project_form/log_in.php"">';
                         echo '<div class="flex-container">';
-                            echo '<p>Your Username or Email:</p>';       
+                            echo '<p>Your Username:</p>';       
                             echo '<input type="text" name="uid" placeholder="Username"/>';       
                         echo '</div>';
                         echo '<div class="flex-container">

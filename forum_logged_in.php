@@ -34,6 +34,11 @@
                         include_once 'project_form/show_threads.php';
                             foreach($rows as $row) {
                                 echo "<div class='thread_title_box flex-container'>";
+                                    echo "<div class='up_down_arr flex-container'>";
+                                        echo "<i class='fas fa-chevron-circle-up'></i>";
+                                        echo "<p class='u_d_count'>0</p>";
+                                        echo "<i class='fas fa-chevron-circle-down'></i>";
+                                    echo "</div>";
                                     echo "<h3 class='thread_title_user'>" . "<span>Thread Title: </span>" . 
                                         "<a href='u_thread.php?id=".$row['id']."'>" . $row['thread_title'] . "</a>" . "</h3>";
                                     echo "<p class='thread_posted_by'>" . "<span>" . "Posted By: " . "</span>"

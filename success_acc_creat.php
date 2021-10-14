@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href='sass/main.css' rel='stylesheet'>
 </head>
-<body id='submit_success'>
+<body id='creat_acc_success'>
     <header class='site-header container flex-container'>
         <h2 class='site-title'>Web Agency<i class="fab fa-draft2digital"></i></h2>
         <nav class='header-nav'>
@@ -40,10 +40,10 @@
     <section class='success-hero'>
         <div class='container flex-container'>
             <h2 class='hero-title'>
-                Thank You For the Submission!
+                You have created an account!
             </h2>
             <p class='hero-text'>
-                We've received your inquiry.
+                Please log in <a href='forum.php'>here</a>.
             </p>
         </div>
     </section>

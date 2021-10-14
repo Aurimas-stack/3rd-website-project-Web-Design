@@ -66,7 +66,9 @@
                         include_once 'project_form/user_thread_count.php';
                         echo "<p class='thread-count'><i class='fas fa-user-edit'></i>". "<span>" . "Total threads: " . "</span>" . $amount_of_threads . ".</p>";
                         echo "<p class='post_count'><i class='fas fa-user-edit'></i>". "<span>" . "Amount of posts: " . "</span>" .  $amount_of_posts . ".</p>";
-                        echo "<a id='delAcc'href='delete_account.php'><i class='fas fa-user-times'></i>Delete Account</a>";
+                        if($_SESSION["u_uid"] !== 'Tester1234') {
+                            echo "<a id='delAcc'href='delete_account.php'><i class='fas fa-user-times'></i>Delete Account</a>";
+                        }
                     echo "</div>"; 
                 echo "</div>";
                 echo '  <form class="log_out_form" action="project_form/log_out.php" method="post">
