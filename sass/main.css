@@ -2602,6 +2602,9 @@ body {
 }
 
 #forum_in .forum_name_look {
+  background-image: url(https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0?fit=crop&fm=jpg&h=700&q=75&w=1050);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #B895E2;
   padding: 20px;
 }
@@ -2647,7 +2650,9 @@ body {
 }
 
 #forum_in .forum_thread_look {
-  background-color: #BFE295;
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 20px;
   min-height: 545px;
 }
@@ -2678,9 +2683,19 @@ body {
           align-items: center;
 }
 
+#forum_in .forum_thread_look .threads > .thread_pagin ul .active {
+  background-color: #fff;
+}
+
 #forum_in .forum_thread_look .threads > .thread_pagin ul li {
   list-style: none;
   margin-left: 5px;
+}
+
+#forum_in .forum_thread_look .threads > .thread_pagin ul li .current {
+  color: #000;
+  padding: 3px;
+  font-weight: 500;
 }
 
 #forum_in .forum_thread_look .threads > .thread_pagin ul li a {
@@ -2762,10 +2777,37 @@ body {
   margin: 0;
 }
 
+#forum_in .forum_thread_look .threads > .thread_title_box .up_down_arr {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#forum_in .forum_thread_look .threads > .thread_title_box .up_down_arr > i {
+  color: #666;
+}
+
+#forum_in .forum_thread_look .threads > .thread_title_box .up_down_arr > i:hover {
+  cursor: pointer;
+  color: #2ea3f2;
+}
+
+#forum_in .forum_thread_look .threads > .thread_title_box .up_down_arr .fa-chevron-circle-up {
+  margin-right: 5px;
+}
+
+#forum_in .forum_thread_look .threads > .thread_title_box .up_down_arr .fa-chevron-circle-down {
+  margin-left: 5px;
+}
+
 #forum_in .forum_thread_look .threads > .thread_title_box .thread_title_user {
   font-weight: 400;
   font-size: 1.2rem;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 #forum_in .forum_thread_look .threads > .thread_title_box .thread_title_user > :nth-child(2) {
@@ -2790,14 +2832,17 @@ body {
   font-weight: 600;
 }
 
-#forum_in .forum_thread_look .threads > .thread_title_box > :nth-child(3) > span {
+#forum_in .forum_thread_look .threads > .thread_title_box > :nth-child(4) > span {
   font-weight: 600;
 }
 
+#make_thread {
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #make_thread .make_thread {
-  background-color: #74EBD5;
-  background-image: -webkit-gradient(linear, left top, right top, from(#74EBD5), to(#9FACE6));
-  background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
   width: 100%;
   height: 100vh;
 }
@@ -2821,12 +2866,12 @@ body {
   line-height: 1.8em;
   font-size: 1.2rem;
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 
 #make_thread .make_thread .container > :nth-child(3):hover {
   cursor: pointer;
-  color: #000;
+  text-decoration: underline;
 }
 
 #make_thread .make_thread .container .post_thread_form {
@@ -2906,6 +2951,10 @@ body {
 }
 
 #make_thread .make_thread .container .log_out_div .loged_user {
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 5px;
+  border-radius: 5px;
   font-size: 1rem;
   letter-spacing: 1px;
 }
@@ -2939,6 +2988,12 @@ body {
   border-radius: 5px;
 }
 
+#thread_in {
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #thread_in .opend_thread {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -2948,8 +3003,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#74EBD5), to(#9FACE6));
-  background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
 }
 
 #thread_in .opend_thread > :nth-child(1) {
@@ -2965,7 +3018,7 @@ body {
   padding: 30px;
   border-radius: 10px;
   max-width: 600px;
-  border: 2px #000 solid;
+  border: 1px #000 solid;
 }
 
 #thread_in .opend_thread > :nth-child(1) > :nth-child(1) {
@@ -2994,7 +3047,7 @@ body {
   width: 590px;
   padding: 10px;
   margin: 10px 0 30px 0;
-  border-radius: 5px;
+  border-radius: 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3144,7 +3197,7 @@ body {
   width: 500px;
   padding: 20px;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 30px 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3158,11 +3211,11 @@ body {
 #thread_in .opend_thread #user-resp-form > :nth-child(1) {
   border: none;
   background-image: #fff;
-  border: 2px #000 solid;
+  border: 1px #000 solid;
   padding: 9px;
   width: 100%;
   color: #000;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 #thread_in .opend_thread #user-resp-form > :nth-child(1):focus {
@@ -3191,15 +3244,13 @@ body {
 
 #thread_in .opend_thread #user-resp-form .button {
   margin: 20px 0 0 0;
-  background-color: #74EBD5;
+  background-color: #fff;
   color: #000;
-  -webkit-transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+  border: 2px solid #E2A071;
 }
 
 #thread_in .opend_thread #user-resp-form .button:hover {
-  background-color: #9FACE6;
-  color: #fff;
+  background-color: #E2A071;
 }
 
 #thread_in .opend_thread #leaving_responses {
@@ -3210,21 +3261,18 @@ body {
   line-height: 1.8em;
   font-size: 1.2rem;
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 
 #thread_in .opend_thread #leaving_responses:hover {
   cursor: pointer;
-  color: #000;
+  text-decoration: underline;
 }
 
 #profile-settings {
-  background: #7474BF;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#348AC7), to(#7474BF));
-  background: linear-gradient(to right, #348AC7, #7474BF);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #profile-settings .container {
@@ -3278,6 +3326,8 @@ body {
 }
 
 #profile-settings .container .user-prof-container .user-profile-pic .icon-div img {
+  border-radius: 5px;
+  border: 2px solid #000;
   width: 100%;
   height: 100%;
 }
@@ -3361,6 +3411,7 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-top: 130px;
+  border: 1px solid #000;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -3403,8 +3454,14 @@ body {
   margin-top: 50px;
 }
 
+#profile-settings .container > form .button {
+  color: #000;
+  border: 2px solid #b62f2f;
+}
+
 #profile-settings .container > form .button:hover {
   background-color: #b62f2f;
+  color: #fff;
 }
 
 #profile-settings .container > a {
@@ -3415,12 +3472,12 @@ body {
   line-height: 1.8em;
   font-size: 1.2rem;
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 
 #profile-settings .container > a:hover {
   cursor: pointer;
-  color: #1bf026;
+  text-decoration: underline;
 }
 
 .show_msg {
@@ -3434,8 +3491,9 @@ body {
 }
 
 #adm_in {
-  background: #337173;
-  /* fallback for old browsers */
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #adm_in #restr_rmvd {
@@ -3536,6 +3594,8 @@ body {
 
 #adm_in #admin_pagin ul li .current {
   color: #000;
+  padding: 3px;
+  font-weight: 500;
 }
 
 #adm_in #admin_pagin ul li a {
@@ -3569,12 +3629,12 @@ body {
   line-height: 1.8em;
   font-size: 1.2rem;
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 
 #adm_in .container #l_adm:hover {
   cursor: pointer;
-  color: #000;
+  text-decoration: underline;
 }
 
 #adm_in .container .user_i_cont {
@@ -3586,7 +3646,8 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  background: #4dcdd2;
+  border: 1px solid #000;
+  background: #fff;
   max-width: 450px;
   padding: 10px;
   border-radius: 10px;
@@ -3625,7 +3686,7 @@ body {
 }
 
 #adm_in .container .user_i_cont .user_cont .fa-unlock-alt:hover {
-  color: #2a6769;
+  text-decoration: underline;
 }
 
 #adm_in .container .user_i_cont .user_cont .fa-ban {
@@ -3633,7 +3694,7 @@ body {
 }
 
 #adm_in .container .user_i_cont .user_cont .fa-ban:hover {
-  color: #e01c1c;
+  text-decoration: underline;
 }
 
 #adm_in .container .user_i_cont .user_cont i {
@@ -3649,12 +3710,14 @@ body {
 }
 
 #delete_acc {
-  background: #7474BF;
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #delete_acc .container {
   max-width: 600px;
-  margin-top: 200px;
+  margin-top: 270px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -3669,7 +3732,12 @@ body {
 }
 
 #delete_acc .container > :nth-child(2) .button {
+  border: 1px solid #2ea3f2;
   color: #000;
+}
+
+#delete_acc .container > :nth-child(2) .button:hover {
+  color: #fff;
 }
 
 #delete_acc .container #delAccForm {
@@ -3685,6 +3753,7 @@ body {
 #delete_acc .container #delAccForm .button {
   margin-top: 20px;
   color: #000;
+  border: 1px solid #b62f2f;
 }
 
 #delete_acc .container #delAccForm .button:hover {
@@ -3740,5 +3809,104 @@ body {
   font-weight: 500;
   font-size: 1.2rem;
   margin: 0;
+}
+
+#del_acc_success .success-hero {
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 450px 0;
+}
+
+#del_acc_success .success-hero .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#del_acc_success .success-hero .container .hero-title {
+  margin: 0;
+  color: #000;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#del_acc_success .success-hero .container .hero-text {
+  width: 50%;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (max-width: 550px) {
+  #del_acc_success .success-hero {
+    padding: 400px 0;
+  }
+  #del_acc_success .success-hero .container .hero-title, #del_acc_success .success-hero .container .hero-text {
+    color: #df3f3f;
+  }
+  #del_acc_success .success-hero .container .hero-title {
+    font-size: 2rem;
+  }
+}
+
+#creat_acc_success .success-hero {
+  background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 450px 0;
+}
+
+#creat_acc_success .success-hero .container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#creat_acc_success .success-hero .container .hero-title {
+  margin: 0;
+  color: #000;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#creat_acc_success .success-hero .container .hero-text {
+  width: 50%;
+  letter-spacing: 1px;
+  line-height: 1.8em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000;
+}
+
+#creat_acc_success .success-hero .container .hero-text a {
+  color: #000;
+}
+
+#creat_acc_success .success-hero .container .hero-text a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 550px) {
+  #creat_acc_success .success-hero {
+    padding: 400px 0;
+  }
+  #creat_acc_success .success-hero .container .hero-title, #creat_acc_success .success-hero .container .hero-text {
+    color: #df3f3f;
+  }
+  #creat_acc_success .success-hero .container .hero-title {
+    font-size: 2rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
