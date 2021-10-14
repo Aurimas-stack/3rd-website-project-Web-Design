@@ -192,7 +192,7 @@ $(document).ready(() => {
             });
         } else {
             $('.tm-wordcount').css({
-                color: '#fff',
+                color: '#000',
                 fontSize: '1rem'
             });
         }
@@ -217,7 +217,7 @@ $(document).ready(() => {
             });
         } else {
             $('.i-wordcount').css({
-                color: '#fff',
+                color: '#000',
                 fontSize: '1rem'
             });
         }
@@ -371,24 +371,6 @@ $(document).ready(() => {
             }
         })
     });
-    /*
-    let posted_threads = $('.thread_title_box');
-    let num_threads = $('.thread_title_box').length;
-    let threadsPerPage = 5;
-    posted_threads.slice(threadsPerPage).hide();
-    $('.thread_pagin').pagination({
-        items: num_threads,
-        itemsOnPage: threadsPerPage,
-        prevText: "&laquo;",
-        displayedPages: 3,
-        nextText: "&raquo;",
-        onPageClick: function (threadNumber) {
-            let showFrom = threadsPerPage * (threadNumber - 1);
-            let showTo = showFrom + threadsPerPage;
-            posted_threads.hide().slice(showFrom, showTo).show();
-        }
-    });
-    */
     //pagination for admin panel users
     let user_box = $('.user_cont');
     let num_of_users = $('.user_cont').length;
