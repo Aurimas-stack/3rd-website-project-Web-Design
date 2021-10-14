@@ -7,10 +7,12 @@
     border-radius: $border-radius;
 }
 #thread_in {
+    background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     .opend_thread {
         @include column-flex;
         padding:10px;
-        background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
         >:nth-child(1) {
             @include column-flex;
             background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
@@ -18,8 +20,7 @@
             padding:30px;
             border-radius:$border-radius * 2;
             max-width: 600px;
-            border:2px $black solid;
-            
+            border:1px $black solid;         
             >:nth-child(1) {
                 text-transform: uppercase;
                 letter-spacing: $bigger-spacing;
@@ -44,7 +45,7 @@
             width:590px;
             padding:10px;
             margin:10px 0 30px 0;
-            border-radius: $border-radius;
+            border-radius: $border-radius*2;
             .response_pagin {
                 @include row-flex;
                 justify-content: center;
@@ -131,17 +132,17 @@
             width:500px;
             padding:20px;
             background-color:$white;
-            border-radius: $border-radius;
+            border-radius: $border-radius*2;
             margin:30px 0;
             @include column-flex;
             >:nth-child(1) {
                 border:none;
                 background-image: $white;
-                border:2px $black solid;
+                border:1px $black solid;
                 padding:9px;
                 width: $full-width;
                 color:$black;
-                border-radius: $border-radius;
+                border-radius: $border-radius*2;
                 &:focus {
                     outline:none;
                 }
@@ -152,22 +153,21 @@
             }
             .button {
                 margin:20px 0 0 0;
-                background-color: #74EBD5;
+                background-color: $white;
                 color:$black;
-                transition:background-color 150ms ease-in-out, color 150ms ease-in-out;
+                border:2px solid #E2A071;
                 &:hover {
-                    background-color :#9FACE6;
-                    color:$white;
+                    background-color :#E2A071;
                 }
             }
         }
         #leaving_responses {
             margin-top:50px;
             text-decoration: none;
-            @include section-text($c: $white);
+            @include section-text($c: $black);
             &:hover {
                 cursor:$pointer;
-                color:$black;
+                text-decoration: underline;
             }
         }
         

@@ -1,0 +1,35 @@
+#del_acc_success {
+    .success-hero {
+        background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 450px 0;
+        .container {
+            @include column-flex;
+            .hero-title {
+                @include section-title;
+                text-align: center
+            }
+            .hero-text {
+                @include section-text;
+            }
+        }
+    }
+}
+
+//MEDIA BELOW
+@media screen and (max-width:550px) {
+    #del_acc_success {
+        .success-hero {
+            padding:400px 0;
+            .container {
+                .hero-title, .hero-text {
+                    color:rgb(223, 63, 63);
+                }
+                .hero-title {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

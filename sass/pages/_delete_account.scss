@@ -1,13 +1,19 @@
 #delete_acc {
-    background: #7474BF;
+    background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     .container {
         max-width:600px;
-        margin-top:200px;
+        margin-top:270px;
         @include column-flex;
         >:nth-child(2) {
             margin-top:50px;
             .button {
+                border:1px solid $darker-light-blue;
                 color:$black;
+                &:hover {
+                    color:$white;
+                }
             }
 
         }
@@ -15,6 +21,7 @@
             .button {
                 margin-top: 20px;
                 color:$black;
+                border:1px solid rgb(182, 47, 47);
                 &:hover {
                     background-color:rgb(182, 47, 47);
                     color:$white;

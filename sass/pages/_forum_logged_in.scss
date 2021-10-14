@@ -1,5 +1,8 @@
 #forum_in {
     .forum_name_look {
+        background-image: url(https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0?fit=crop&fm=jpg&h=700&q=75&w=1050);
+        background-repeat: no-repeat;
+        background-size: cover;
         background-color:#B895E2;
         padding:20px;
         .container {
@@ -35,7 +38,9 @@
         }
     }
     .forum_thread_look {
-        background-color: #BFE295;
+        background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
         padding:20px;
         min-height:545px;
         .threads {
@@ -47,7 +52,15 @@
                 ul {
                     display:flex;
                     @include row-flex;
+                    .active {
+                        background-color: $white;
+                    }
                     li {
+                        .current {
+                            color:$black;
+                            padding:3px;
+                            font-weight: 500;
+                        }
                         list-style:none;
                         a {
                             font-size:1.1rem;
@@ -103,10 +116,26 @@
                         margin:0;
                     }
                 }
+                .up_down_arr {
+                    @include row-flex;
+                    >i {
+                        color:#666;
+                        &:hover {
+                            cursor:$pointer;
+                            color:$darker-light-blue;
+                        }
+                    }
+                    .fa-chevron-circle-up {
+                        margin-right: 5px;
+                    }
+                    .fa-chevron-circle-down {
+                        margin-left:5px;
+                    }
+                }
                 .thread_title_user {
                     font-weight: 400;
                     font-size: 1.2rem;
-                    margin-top:20px;
+                    margin-top:5px;
                     >:nth-child(2) {
                         color:$black;
                         text-decoration: none;
@@ -125,7 +154,7 @@
                         font-weight: 600;
                     }
                 }
-                >:nth-child(3) {
+                >:nth-child(4) {
                     >span {
                         font-weight: 600;
                     }

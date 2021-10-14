@@ -47,7 +47,9 @@
             text-align: justify;
         }
     }
-    background: #337173;  /* fallback for old browsers */
+    background-image: url(https://user-images.githubusercontent.com/82368117/132814750-07ab30c4-ecda-4916-9b37-9682d20cece9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     #admin_pagin {
         @include row-flex;
             justify-content: center;
@@ -56,11 +58,13 @@
                 display:flex;
                 @include row-flex;
                 .active {
-                    background-color: #fff;
+                    background-color: $white;
                 }
                 li {
                     .current {
                         color:$black;
+                        padding:3px;
+                        font-weight: 500;
                     }
                     list-style:none;
                     a {
@@ -83,17 +87,18 @@
         #l_adm {
             margin-top:50px;
             text-decoration: none;
-            @include section-text($c: $white);
+            @include section-text($c: $black);
             &:hover {
                 cursor:$pointer;
-                color:$black;
+                text-decoration: underline;
             }
         }
         .user_i_cont {
             margin-top: 100px;
             flex-direction: column;
             align-items: flex-start;
-            background:#4dcdd2;
+            border:1px solid $black;
+            background:$white;
             max-width: 450px;
             padding:10px;
             border-radius: $border-radius*2;
@@ -116,13 +121,13 @@
                 .fa-unlock-alt {
                     color:$black;
                     &:hover {
-                        color:#2a6769;
+                        text-decoration: underline;
                     }
                 }
                 .fa-ban {
                     color:rgb(204, 36, 36);
                     &:hover {
-                        color:rgb(224, 28, 28);
+                        text-decoration: underline;
                     }
                 }
                 i {
