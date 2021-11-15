@@ -1,4 +1,4 @@
-# 3rd-website-project-Web-Design (in progress)
+# 3rd-website-project-Web-Design
 
 This project is still in progress, but this is the difference so far:
 1) Instead of CSS, I'm using SCSS (SASS) in order to create CSS content which would be easier to change and to write. To compile SCSS into CSS I'm using VS extension.
